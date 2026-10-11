@@ -1,0 +1,680 @@
+{
+  "audits": [
+    {
+      "id": "AUD-MV3RE551",
+      "timestamp": "11 Oct 2026, 05:17 pm",
+      "consumer_name": "Pream Pareesh",
+      "service_number": "3321213164172",
+      "consumer_number": "3321213164172",
+      "discom": "APSPDCL",
+      "billing_month": "October 2026",
+      "units_consumed": 320.0,
+      "expected_amount": 1922.45,
+      "actual_amount": 501.0,
+      "difference": -1421.45,
+      "status": "Review Recommended",
+      "tariff_schedule_version": "APERC-TO-2024-25",
+      "s3_document_key": null
+    }
+  ],
+  "complaints": [
+    {
+      "id": "CMP-MV3OK7HT",
+      "audit_id": "AUD-MV3OK7HK",
+      "consumer_number": "332250950",
+      "discom": "APSPDCL",
+      "actual_bill": 536.0,
+      "expected_bill": 535.77,
+      "difference": 0.23,
+      "status": "Generated",
+      "created_at": "2026-10-11T10:28:34.673Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9536.00) matches the APERC expected payable bill after statutory nearest-rupee rounding (calculated \u20b9535.77 rounded to \u20b9536.00 per APERC Supply Code). Highest slab tier entered: 76 \u2013 125 units @ \u20b94.50/u. Slabs applied: Energy \u20b9417.00, Fixed \u20b910.00, Customer \u20b945.00, Duty \u20b97.50, FPPCA \u20b956.27. The \u20b90.23 rounding adjustment conforms to utility billing terms."
+    },
+    {
+      "id": "TEST-COMP-1791713040",
+      "audit_id": "TEST-AUD-1791713040",
+      "consumer_number": "SEC-01-88888",
+      "discom": "APSPDCL",
+      "actual_bill": 1500.0,
+      "expected_bill": 1200.0,
+      "difference": 300.0,
+      "status": "Submitted",
+      "created_at": "11 Oct 2026, 08:00 AM",
+      "complaint_letter_text": "Excess variance dispute letter content for CGRF submission."
+    },
+    {
+      "id": "CMP-MV3KKQVQ",
+      "audit_id": "AUD-MV3KKQVF",
+      "consumer_number": "N/A",
+      "discom": "APSPDCL",
+      "actual_bill": 1000.0,
+      "expected_bill": 25.0,
+      "difference": 975.0,
+      "status": "Generated",
+      "created_at": "2026-10-11T08:37:01.334Z",
+      "complaint_letter_text": "Actual billed amount (\u20b91,000.00) exceeds the APERC expected tariff (\u20b925.00) by \u20b9975.00 (+3900.0%). Highest slab tier entered: 0 \u2013 30 units. Slabs applied: Energy \u20b90.00, Fixed \u20b90.00, Customer \u20b925.00, Duty \u20b90.00, FPPCA \u20b90.00. The excess variance of \u20b9975.00 is not accounted for by published APERC retail tariff schedules."
+    },
+    {
+      "id": "CMP-MV3JYAUG",
+      "audit_id": "AUD-MV3JYAU7",
+      "consumer_number": "2321217024950",
+      "discom": "APSPDCL",
+      "actual_bill": 1388.0,
+      "expected_bill": 1387.97,
+      "difference": 0.03,
+      "status": "Generated",
+      "created_at": "2026-10-11T08:19:34.120Z",
+      "complaint_letter_text": "Actual billed amount (\u20b91,388.00) matches the APERC expected payable bill after statutory nearest-rupee rounding (calculated \u20b91,387.97 rounded to \u20b91,388.00 per APERC Supply Code). Highest slab tier entered: 226 \u2013 400 units @ \u20b98.75/u. Slabs applied: Energy \u20b91200.75, Fixed \u20b910.00, Customer \u20b955.00, Duty \u20b914.76, FPPCA \u20b9107.46. The \u20b90.03 rounding adjustment conforms to utility billing terms."
+    },
+    {
+      "id": "CMP-MV38QUE4",
+      "audit_id": "AUD-MV38QUDY",
+      "consumer_number": "3322507102615504611026",
+      "discom": "APSPDCL",
+      "actual_bill": 536.0,
+      "expected_bill": 535.77,
+      "difference": 0.23,
+      "status": "Generated",
+      "created_at": "2026-10-11T03:05:50.428Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9536.00) matches the APERC expected payable bill after statutory nearest-rupee rounding (calculated \u20b9535.77 rounded to \u20b9536.00 per APERC Supply Code). Highest slab tier entered: 76 \u2013 125 units @ \u20b94.50/u. Slabs applied: Energy \u20b9417.00, Fixed \u20b910.00, Customer \u20b945.00, Duty \u20b97.50, FPPCA \u20b956.27. The \u20b90.23 rounding adjustment conforms to utility billing terms."
+    },
+    {
+      "id": "CMP-MV38NAL9",
+      "audit_id": "AUD-MV38NAL2",
+      "consumer_number": "3322507102615504611026",
+      "discom": "APSPDCL",
+      "actual_bill": 536.0,
+      "expected_bill": 535.77,
+      "difference": 0.23,
+      "status": "Generated",
+      "created_at": "2026-10-11T03:03:04.797Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9536.00) matches the APERC expected payable bill after statutory nearest-rupee rounding (calculated \u20b9535.77 rounded to \u20b9536.00 per APERC Supply Code). Highest slab tier entered: 76 \u2013 125 units @ \u20b94.50/u. Slabs applied: Energy \u20b9417.00, Fixed \u20b910.00, Customer \u20b945.00, Duty \u20b97.50, FPPCA \u20b956.27. The \u20b90.23 rounding adjustment conforms to utility billing terms."
+    },
+    {
+      "id": "CMP-MV37C4KN",
+      "audit_id": "AUD-MV37C4KA",
+      "consumer_number": "3322507102615504611026",
+      "discom": "APSPDCL",
+      "actual_bill": 536.0,
+      "expected_bill": 535.77,
+      "difference": 0.23,
+      "status": "Generated",
+      "created_at": "2026-10-11T02:26:24.167Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9536.00) matches the APERC expected payable bill after statutory nearest-rupee rounding (calculated \u20b9535.77 rounded to \u20b9536.00 per APERC Supply Code). Highest slab tier entered: 76 \u2013 125 units @ \u20b94.50/u. Slabs applied: Energy \u20b9417.00, Fixed \u20b910.00, Customer \u20b945.00, Duty \u20b97.50, FPPCA \u20b956.27. The \u20b90.23 rounding adjustment conforms to utility billing terms."
+    },
+    {
+      "id": "CMP-MV37BAAU",
+      "audit_id": "AUD-MV37BAAM",
+      "consumer_number": "3322507102615504611026",
+      "discom": "APSPDCL",
+      "actual_bill": 536.0,
+      "expected_bill": 535.7,
+      "difference": 0.3,
+      "status": "Generated",
+      "created_at": "2026-10-11T02:25:44.934Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9536.00) matches the APERC expected payable bill after statutory nearest-rupee rounding (calculated \u20b9535.70 rounded to \u20b9536.00 per APERC Supply Code). Highest slab tier entered: 76 \u2013 125 units @ \u20b94.50/u. Slabs applied: Energy \u20b9417.00, Fixed \u20b910.00, Customer \u20b945.00, Duty \u20b97.50, FPPCA \u20b956.20. The \u20b90.30 rounding adjustment conforms to utility billing terms."
+    },
+    {
+      "id": "CMP-MV34UFZE",
+      "audit_id": "AUD-MV34UFZ8",
+      "consumer_number": "NB1026102601234",
+      "discom": "APSPDCL",
+      "actual_bill": 1536.0,
+      "expected_bill": 551.42,
+      "difference": 984.58,
+      "status": "Generated",
+      "created_at": "2026-10-11T01:16:39.914Z",
+      "complaint_letter_text": "Actual billed amount (\u20b91,536.00) exceeds the APERC expected tariff (\u20b9551.42) by \u20b9984.58 (+178.6%). Highest slab tier entered: 76 \u2013 125 units @ \u20b94.50/u. Slabs applied: Energy \u20b9417.00, Fixed \u20b920.00, Customer \u20b945.00, Duty \u20b97.50, FPPCA \u20b961.92. The excess variance of \u20b9984.58 is not accounted for by published APERC retail tariff schedules."
+    },
+    {
+      "id": "CMP-MV2F7O9N",
+      "audit_id": "AUD-MV2F7O9I",
+      "consumer_number": "NB1026102601234",
+      "discom": "APSPDCL",
+      "actual_bill": 1536.0,
+      "expected_bill": 551.42,
+      "difference": 984.58,
+      "status": "Generated",
+      "created_at": "2026-10-10T13:19:07.164Z",
+      "complaint_letter_text": "Actual billed amount (\u20b91,536.00) exceeds the APERC expected tariff (\u20b9551.42) by \u20b9984.58 (+178.6%). Highest slab tier entered: 76 \u2013 125 units @ \u20b94.50/u. Slabs applied: Energy \u20b9417.00, Fixed \u20b920.00, Customer \u20b945.00, Duty \u20b97.50, FPPCA \u20b961.92. The excess variance of \u20b9984.58 is not accounted for by published APERC retail tariff schedules."
+    },
+    {
+      "id": "CMP-MV2ECU9L",
+      "audit_id": "AUD-MV2ECU9E",
+      "consumer_number": "3322507102615504611026",
+      "discom": "APSPDCL",
+      "actual_bill": 536.0,
+      "expected_bill": 535.77,
+      "difference": 0.23,
+      "status": "Generated",
+      "created_at": "2026-10-10T12:55:08.601Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9536.00) exceeds the APERC expected tariff (\u20b9535.77) by \u20b90.23 (+0.0%). Highest slab tier entered: 76 \u2013 125 units @ \u20b94.50/u. Slabs applied: Energy \u20b9417.00, Fixed \u20b910.00, Customer \u20b945.00, Duty \u20b97.50, FPPCA \u20b956.27. The excess variance of \u20b90.23 is not accounted for by published APERC retail tariff schedules."
+    },
+    {
+      "id": "CMP-MV2DVWT6",
+      "audit_id": "AUD-MV2DVWSU",
+      "consumer_number": "3322507102615504611026",
+      "discom": "APSPDCL",
+      "actual_bill": 536.0,
+      "expected_bill": 535.7,
+      "difference": 0.3,
+      "status": "Generated",
+      "created_at": "2026-10-10T12:41:58.746Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9536.00) exceeds the APERC expected tariff (\u20b9535.70) by \u20b90.30 (+0.1%). Highest slab tier entered: 76 \u2013 125 units @ \u20b94.50/u. Slabs applied: Energy \u20b9417.00, Fixed \u20b910.00, Customer \u20b945.00, Duty \u20b97.50, FPPCA \u20b956.20. The excess variance of \u20b90.30 is not accounted for by published APERC retail tariff schedules."
+    },
+    {
+      "id": "CMP-MV2C67DH",
+      "audit_id": "AUD-MV2C67DB",
+      "consumer_number": "3322507102615503611026",
+      "discom": "APSPDCL",
+      "actual_bill": 1386.0,
+      "expected_bill": 1093.16,
+      "difference": 292.84,
+      "status": "Generated",
+      "created_at": "2026-10-10T11:53:59.765Z",
+      "complaint_letter_text": "Actual billed amount (\u20b91386) exceeds the APERC authorized tariff (\u20b91093) by \u20b9292 (+26.8%). Consuming 246.0 units entered the 226 \u2013 400 units @ \u20b96.50/u tier. The unexplained excess of \u20b9292 violates approved APERC retail tariff gazettes."
+    },
+    {
+      "id": "CMP-MV2678WS",
+      "audit_id": "AUD-MV2678WP",
+      "consumer_number": "3322507102615503611026",
+      "discom": "APSPDCL",
+      "actual_bill": 1386.0,
+      "expected_bill": 1093.16,
+      "difference": 292.84,
+      "status": "Generated",
+      "created_at": "2026-10-10T09:06:50.717Z",
+      "complaint_letter_text": "Actual billed amount (\u20b91386) exceeds the APERC authorized tariff (\u20b91093) by \u20b9292 (+26.8%). Consuming 246.0 units entered the 226 \u2013 400 units @ \u20b96.50/u tier. The unexplained excess of \u20b9292 violates approved APERC retail tariff gazettes."
+    },
+    {
+      "id": "CMP-MV266GQ8",
+      "audit_id": "AUD-MV266GQ1",
+      "consumer_number": "3322507102615504611026",
+      "discom": "APSPDCL",
+      "actual_bill": 536.0,
+      "expected_bill": 428.75,
+      "difference": 107.25,
+      "status": "Generated",
+      "created_at": "2026-10-10T09:06:14.192Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9536) exceeds the APERC authorized tariff (\u20b9428) by \u20b9107 (+25.0%). Consuming 125.0 units entered the 101 \u2013 200 units @ \u20b94.50/u tier. The unexplained excess of \u20b9107 violates approved APERC retail tariff gazettes."
+    },
+    {
+      "id": "CMP-MV25ROH6",
+      "audit_id": "AUD-MV25ROH1",
+      "consumer_number": "3321305102616555011026",
+      "discom": "APSPDCL",
+      "actual_bill": 501.0,
+      "expected_bill": 386.94,
+      "difference": 114.06,
+      "status": "Generated",
+      "created_at": "2026-10-10T08:54:44.394Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9501) exceeds the APERC authorized tariff (\u20b9386) by \u20b9114 (+29.5%). Consuming 114.0 units entered the 101 \u2013 200 units @ \u20b94.50/u tier. The unexplained excess of \u20b9114 violates approved APERC retail tariff gazettes."
+    },
+    {
+      "id": "CMP-MV25PGJY",
+      "audit_id": "AUD-MV25PGJS",
+      "consumer_number": "3322507102615503611026",
+      "discom": "APSPDCL",
+      "actual_bill": 1386.0,
+      "expected_bill": 1093.16,
+      "difference": 292.84,
+      "status": "Generated",
+      "created_at": "2026-10-10T08:53:00.814Z",
+      "complaint_letter_text": "Actual billed amount (\u20b91386) exceeds the APERC authorized tariff (\u20b91093) by \u20b9292 (+26.8%). Consuming 246.0 units entered the 226 \u2013 400 units @ \u20b96.50/u tier. The unexplained excess of \u20b9292 violates approved APERC retail tariff gazettes."
+    },
+    {
+      "id": "CMP-MV24INF5",
+      "audit_id": "AUD-MV24INF2",
+      "consumer_number": "3322507102615504611026",
+      "discom": "APSPDCL",
+      "actual_bill": 536.0,
+      "expected_bill": 428.75,
+      "difference": 107.25,
+      "status": "Generated",
+      "created_at": "2026-10-10T08:19:43.505Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9536) exceeds the APERC authorized tariff (\u20b9428) by \u20b9107 (+25.0%). Consuming 125.0 units entered the 101 \u2013 200 units @ \u20b94.50/u tier. The unexplained excess of \u20b9107 violates approved APERC retail tariff gazettes."
+    },
+    {
+      "id": "CMP-MV24FJ3A",
+      "audit_id": "AUD-MV24FJ34",
+      "consumer_number": "3322507102615503611026",
+      "discom": "APSPDCL",
+      "actual_bill": 1386.0,
+      "expected_bill": 1093.16,
+      "difference": 292.84,
+      "status": "Generated",
+      "created_at": "2026-10-10T08:17:17.926Z",
+      "complaint_letter_text": "Actual billed amount (\u20b91386) exceeds the APERC authorized tariff (\u20b91093) by \u20b9292 (+26.8%). Consuming 246.0 units entered the 226 \u2013 400 units @ \u20b96.50/u tier. The unexplained excess of \u20b9292 violates approved APERC retail tariff gazettes."
+    },
+    {
+      "id": "CMP-MV1ZJE5H",
+      "audit_id": "AUD-MV1ZJE5C",
+      "consumer_number": "3321213164172",
+      "discom": "APSPDCL",
+      "actual_bill": 501.0,
+      "expected_bill": 386.94,
+      "difference": 114.06,
+      "status": "Generated",
+      "created_at": "2026-10-10T06:00:20.070Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9501) exceeds the APERC authorized tariff (\u20b9386) by \u20b9114 (+29.5%). Consuming 114.0 units entered the 101 \u2013 200 units @ \u20b94.50/u tier. The unexplained excess of \u20b9114 violates approved APERC retail tariff gazettes."
+    },
+    {
+      "id": "CMP-MV1ZEA4H",
+      "audit_id": "AUD-MV1ZEA4A",
+      "consumer_number": "3321213164172",
+      "discom": "APSPDCL",
+      "actual_bill": 501.0,
+      "expected_bill": 386.94,
+      "difference": 114.06,
+      "status": "Generated",
+      "created_at": "2026-10-10T05:56:21.569Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9501) exceeds the APERC authorized tariff (\u20b9386) by \u20b9114 (+29.5%). Consuming 114.0 units entered the 101 \u2013 200 units @ \u20b94.50/u tier. The unexplained excess of \u20b9114 violates approved APERC retail tariff gazettes."
+    },
+    {
+      "id": "CMP-MV153609",
+      "audit_id": "AUD-MV153602",
+      "consumer_number": "3321213164172",
+      "discom": "APSPDCL",
+      "actual_bill": 501.0,
+      "expected_bill": 387.0,
+      "difference": 114.0,
+      "status": "Generated",
+      "created_at": "2026-10-09T15:47:54.537Z",
+      "complaint_letter_text": "Actual billed amount (\u20b9501) exceeds the APERC authorized tariff (\u20b9387) by \u20b9114 (+29.5%). Consuming 114.0 units entered the 101 \u2013 200 units @ \u20b94.50/u tier. The unexplained excess of \u20b9114 violates approved APERC retail tariff gazettes."
+    }
+  ],
+  "jobs": {
+    "job-76341d03e300459a": {
+      "status": "completed",
+      "stage": "Checking extracted details",
+      "data": {
+        "consumer_name": "T. Murali Krishna",
+        "consumer_number": "1982736451",
+        "service_number": "VIZ-01-44912",
+        "discom": "APEPDCL",
+        "consumer_category": "Domestic",
+        "billing_month": "September 2026",
+        "units_consumed": 180.0,
+        "bill_amount": 1056.0,
+        "fixed_charges": 30.0,
+        "taxes": 11.0,
+        "fuel_adjustment_charges": 27.0,
+        "previous_reading": 4120.0,
+        "current_reading": 4300.0,
+        "due_date": "20-09-2026",
+        "is_demo": false
+      },
+      "validation": {
+        "overall_status": "Validated",
+        "arithmetic_reconciled": true,
+        "fields": [
+          {
+            "field_name": "Consumer / Service ID",
+            "extracted_value": "1982736451",
+            "status": "Validated",
+            "reason": "Identified official AP account identifier"
+          },
+          {
+            "field_name": "Units Consumed",
+            "extracted_value": "180.0 kWh",
+            "status": "Validated",
+            "reason": "Units verified with meter readings"
+          },
+          {
+            "field_name": "Billed Amount",
+            "extracted_value": "\u20b91056",
+            "status": "Validated",
+            "reason": "Total statement figure found"
+          },
+          {
+            "field_name": "DISCOM Authority",
+            "extracted_value": "APEPDCL",
+            "status": "Validated",
+            "reason": "Recognized Andhra Pradesh utility (APEPDCL)"
+          }
+        ],
+        "warnings": []
+      },
+      "document_s3_key": "bills/upload_637ba77a58e2_bill.pdf",
+      "created_at": 1791712085.321994,
+      "job_id": "job-76341d03e300459a",
+      "expires_at": 1791715685
+    },
+    "job-c9ff36be7b144e8d": {
+      "status": "completed",
+      "stage": "Checking extracted details",
+      "data": {
+        "consumer_name": "T. Murali Krishna",
+        "consumer_number": "1982736451",
+        "service_number": "VIZ-01-44912",
+        "discom": "APEPDCL",
+        "consumer_category": "Domestic",
+        "billing_month": "September 2026",
+        "units_consumed": 180.0,
+        "bill_amount": 1056.0,
+        "fixed_charges": 30.0,
+        "taxes": 11.0,
+        "fuel_adjustment_charges": 27.0,
+        "previous_reading": 4120.0,
+        "current_reading": 4300.0,
+        "due_date": "20-09-2026",
+        "is_demo": false
+      },
+      "validation": {
+        "overall_status": "Validated",
+        "arithmetic_reconciled": true,
+        "fields": [
+          {
+            "field_name": "Consumer / Service ID",
+            "extracted_value": "1982736451",
+            "status": "Validated",
+            "reason": "Identified official AP account identifier"
+          },
+          {
+            "field_name": "Units Consumed",
+            "extracted_value": "180.0 kWh",
+            "status": "Validated",
+            "reason": "Units verified with meter readings"
+          },
+          {
+            "field_name": "Billed Amount",
+            "extracted_value": "\u20b91056",
+            "status": "Validated",
+            "reason": "Total statement figure found"
+          },
+          {
+            "field_name": "DISCOM Authority",
+            "extracted_value": "APEPDCL",
+            "status": "Validated",
+            "reason": "Recognized Andhra Pradesh utility (APEPDCL)"
+          }
+        ],
+        "warnings": []
+      },
+      "document_s3_key": "bills/upload_b69de1c519e0_bill.pdf",
+      "created_at": 1791712527.1713338,
+      "job_id": "job-c9ff36be7b144e8d",
+      "expires_at": 1791716127
+    },
+    "job-372899bfb1d0481a": {
+      "status": "completed",
+      "stage": "Checking extracted details",
+      "data": {
+        "consumer_name": "T. Murali Krishna",
+        "consumer_number": "1982736451",
+        "service_number": "VIZ-01-44912",
+        "discom": "APEPDCL",
+        "consumer_category": "Domestic",
+        "billing_month": "September 2026",
+        "units_consumed": 180.0,
+        "bill_amount": 1056.0,
+        "fixed_charges": 30.0,
+        "taxes": 11.0,
+        "fuel_adjustment_charges": 27.0,
+        "previous_reading": 4120.0,
+        "current_reading": 4300.0,
+        "due_date": "20-09-2026",
+        "is_demo": false
+      },
+      "validation": {
+        "overall_status": "Validated",
+        "arithmetic_reconciled": true,
+        "fields": [
+          {
+            "field_name": "Consumer / Service ID",
+            "extracted_value": "1982736451",
+            "status": "Validated",
+            "reason": "Identified official AP account identifier"
+          },
+          {
+            "field_name": "Units Consumed",
+            "extracted_value": "180.0 kWh",
+            "status": "Validated",
+            "reason": "Units verified with meter readings"
+          },
+          {
+            "field_name": "Billed Amount",
+            "extracted_value": "\u20b91056",
+            "status": "Validated",
+            "reason": "Total statement figure found"
+          },
+          {
+            "field_name": "DISCOM Authority",
+            "extracted_value": "APEPDCL",
+            "status": "Validated",
+            "reason": "Recognized Andhra Pradesh utility (APEPDCL)"
+          }
+        ],
+        "warnings": []
+      },
+      "document_s3_key": "bills/upload_e8bbb36f2bdc_bill.pdf",
+      "created_at": 1791712550.9620218,
+      "job_id": "job-372899bfb1d0481a",
+      "expires_at": 1791716150
+    },
+    "job-d8b3fe4545024f2f": {
+      "status": "completed",
+      "stage": "Checking extracted details",
+      "data": {
+        "consumer_name": "T. Murali Krishna",
+        "consumer_number": "1982736451",
+        "service_number": "VIZ-01-44912",
+        "discom": "APEPDCL",
+        "consumer_category": "Domestic",
+        "billing_month": "September 2026",
+        "units_consumed": 180.0,
+        "bill_amount": 1056.0,
+        "fixed_charges": 30.0,
+        "taxes": 11.0,
+        "fuel_adjustment_charges": 27.0,
+        "previous_reading": 4120.0,
+        "current_reading": 4300.0,
+        "due_date": "20-09-2026",
+        "is_demo": false
+      },
+      "validation": {
+        "overall_status": "Validated",
+        "arithmetic_reconciled": true,
+        "fields": [
+          {
+            "field_name": "Consumer / Service ID",
+            "extracted_value": "1982736451",
+            "status": "Validated",
+            "reason": "Identified official AP account identifier"
+          },
+          {
+            "field_name": "Units Consumed",
+            "extracted_value": "180.0 kWh",
+            "status": "Validated",
+            "reason": "Units verified with meter readings"
+          },
+          {
+            "field_name": "Billed Amount",
+            "extracted_value": "\u20b91056",
+            "status": "Validated",
+            "reason": "Total statement figure found"
+          },
+          {
+            "field_name": "DISCOM Authority",
+            "extracted_value": "APEPDCL",
+            "status": "Validated",
+            "reason": "Recognized Andhra Pradesh utility (APEPDCL)"
+          }
+        ],
+        "warnings": []
+      },
+      "document_s3_key": "bills/upload_73b9d5b204b5_bill.pdf",
+      "created_at": 1791713011.635369,
+      "job_id": "job-d8b3fe4545024f2f",
+      "expires_at": 1791716611
+    },
+    "job-c7f5d69644e84b14": {
+      "status": "completed",
+      "stage": "Checking extracted details",
+      "data": {
+        "consumer_name": "T. Murali Krishna",
+        "consumer_number": "1982736451",
+        "service_number": "VIZ-01-44912",
+        "discom": "APEPDCL",
+        "consumer_category": "Domestic",
+        "billing_month": "September 2026",
+        "units_consumed": 180.0,
+        "bill_amount": 1056.0,
+        "fixed_charges": 30.0,
+        "taxes": 11.0,
+        "fuel_adjustment_charges": 27.0,
+        "previous_reading": 4120.0,
+        "current_reading": 4300.0,
+        "due_date": "20-09-2026",
+        "is_demo": false
+      },
+      "validation": {
+        "overall_status": "Validated",
+        "arithmetic_reconciled": true,
+        "fields": [
+          {
+            "field_name": "Consumer / Service ID",
+            "extracted_value": "1982736451",
+            "status": "Validated",
+            "reason": "Identified official AP account identifier"
+          },
+          {
+            "field_name": "Units Consumed",
+            "extracted_value": "180.0 kWh",
+            "status": "Validated",
+            "reason": "Units verified with meter readings"
+          },
+          {
+            "field_name": "Billed Amount",
+            "extracted_value": "\u20b91056",
+            "status": "Validated",
+            "reason": "Total statement figure found"
+          },
+          {
+            "field_name": "DISCOM Authority",
+            "extracted_value": "APEPDCL",
+            "status": "Validated",
+            "reason": "Recognized Andhra Pradesh utility (APEPDCL)"
+          }
+        ],
+        "warnings": []
+      },
+      "document_s3_key": "bills/upload_b20d9768e482_bill.pdf",
+      "created_at": 1791713040.6682801,
+      "job_id": "job-c7f5d69644e84b14",
+      "expires_at": 1791716640
+    },
+    "job-7749422b749f48ae": {
+      "status": "completed",
+      "stage": "Checking extracted details",
+      "data": {
+        "consumer_name": "N/A",
+        "consumer_number": "N/A",
+        "service_number": "N/A",
+        "discom": "APSPDCL",
+        "consumer_category": "Domestic",
+        "billing_month": "N/A",
+        "units_consumed": 0.0,
+        "bill_amount": 0.0,
+        "fixed_charges": 0.0,
+        "taxes": 0.0,
+        "fuel_adjustment_charges": 0.0,
+        "previous_reading": 0.0,
+        "current_reading": 0.0,
+        "due_date": "N/A",
+        "is_demo": false
+      },
+      "validation": {
+        "overall_status": "Needs Review",
+        "arithmetic_reconciled": true,
+        "fields": [
+          {
+            "field_name": "Consumer / Service ID",
+            "extracted_value": "N/A",
+            "status": "Needs Review",
+            "reason": "Identifier short or unverified"
+          },
+          {
+            "field_name": "Units Consumed",
+            "extracted_value": "0 kWh",
+            "status": "Missing",
+            "reason": "Consumption units missing or zero"
+          },
+          {
+            "field_name": "Billed Amount",
+            "extracted_value": "Missing",
+            "status": "Missing",
+            "reason": "Bill total not detected"
+          },
+          {
+            "field_name": "DISCOM Authority",
+            "extracted_value": "APSPDCL",
+            "status": "Validated",
+            "reason": "Recognized Andhra Pradesh utility (APSPDCL)"
+          }
+        ],
+        "warnings": []
+      },
+      "document_s3_key": "bills/e6f2bcc386bd464e93826b427b8ccd33_WhatsApp_Image_2026-08-26_at_2.jpeg",
+      "created_at": 1791714480.336083,
+      "job_id": "job-7749422b749f48ae",
+      "expires_at": 1791718080
+    },
+    "job-7dd952c695364a93": {
+      "status": "completed",
+      "stage": "Checking extracted details",
+      "data": {
+        "consumer_name": "RAJAVARAPU LAKSHMI",
+        "consumer_number": "332250950",
+        "service_number": "332250950",
+        "discom": "APSPDCL",
+        "consumer_category": "Domestic",
+        "billing_month": "October 2026",
+        "units_consumed": 125.0,
+        "bill_amount": 536.0,
+        "fixed_charges": 10.0,
+        "taxes": 7.5,
+        "fuel_adjustment_charges": 56.27,
+        "previous_reading": 3435.0,
+        "current_reading": 3560.0,
+        "due_date": "22-10-2026",
+        "is_demo": false
+      },
+      "validation": {
+        "overall_status": "Validated",
+        "arithmetic_reconciled": true,
+        "fields": [
+          {
+            "field_name": "Consumer / Service ID",
+            "extracted_value": "332250950",
+            "status": "Validated",
+            "reason": "Identified official AP account identifier"
+          },
+          {
+            "field_name": "Units Consumed",
+            "extracted_value": "125.0 kWh",
+            "status": "Validated",
+            "reason": "Units verified with meter readings"
+          },
+          {
+            "field_name": "Billed Amount",
+            "extracted_value": "\u20b9536",
+            "status": "Validated",
+            "reason": "Total statement figure found"
+          },
+          {
+            "field_name": "DISCOM Authority",
+            "extracted_value": "APSPDCL",
+            "status": "Validated",
+            "reason": "Recognized Andhra Pradesh utility (APSPDCL)"
+          }
+        ],
+        "warnings": []
+      },
+      "document_s3_key": "bills/77479fee6f1e4d22ae8e639853989e0a_WhatsApp_Image_2026-10-10_at_1.jpeg",
+      "created_at": 1791714512.399662,
+      "job_id": "job-7dd952c695364a93",
+      "expires_at": 1791718112
+    }
+  }
+}
