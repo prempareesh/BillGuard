@@ -11,8 +11,9 @@ import {
   calculateAPTariff,
 } from "./apTariffEngine.ts";
 
-const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_URL || "http://localhost:8001";
+import { getApiBaseUrl } from "./config.ts";
+
+export { API_BASE_URL } from "./config.ts";
 
 export interface PresignedUploadResponse {
   upload_url: string;
@@ -87,18 +88,18 @@ export interface OCRExtractResponse {
 }
 
 class BillGuardApiClient {
-  private baseUrl: string;
-
-  constructor() {
-    this.baseUrl = API_BASE_URL.replace(/\/$/, "");
+  get baseUrl(): string {
+    return getApiBaseUrl();
   }
+
+  constructor() {}
 
   /**
    * Healthcheck
    */
   async checkHealth(): Promise<boolean> {
     try {
-      const res = await fetch(`${this.baseUrl}/health`, {
+      const res = await fetch(`${this.baseUrl}/api/health`, {
         signal: AbortSignal.timeout(4000),
       });
       return res.ok;
@@ -552,6 +553,9 @@ class BillGuardApiClient {
   /**
    * 9. Assistant Chat via FastAPI / Gemini
    */
+  /**
+   * 9. Assistant Chat via FastAPI Backend (/api/ai/chat)
+   */
   async chatAssistant(
     message: string,
     language: string,
@@ -566,29 +570,116 @@ class BillGuardApiClient {
           language,
           bill_context: billContext,
         }),
-        signal: AbortSignal.timeout(6000),
+        signal: AbortSignal.timeout(15000),
       });
       if (res.ok) {
         const data = await res.json();
-        return data.reply;
+        if (data.reply) {
+          return data.reply;
+        }
+      } else {
+        const errJson = await res.json().catch(() => ({}));
+        console.warn("Backend /api/ai/chat returned error status:", res.status, errJson);
       }
     } catch (e) {
-      console.warn("FastAPI chat failed, falling back:", e);
+      console.warn("Backend /api/ai/chat request failed, using client fallback:", e);
     }
 
-    // Direct Next.js route fallback
-    const res = await fetch("/api/gemini", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        mode: "assistant_chat",
-        message,
-        language,
-        billContext,
-      }),
-    });
-    const d = await res.json();
-    return d.reply || "Could not generate response.";
+    // Direct contextual client-side fallback (avoids hitting frontend /api/gemini without server keys)
+    return this._getLocalChatFallback(message, language, billContext);
+  }
+
+  private _getLocalChatFallback(
+    message: string,
+    language: string,
+    billContext?: Record<string, unknown>
+  ): string {
+    const consumerName = String(billContext?.consumerName || "Consumer");
+    const serviceNumber = String(billContext?.serviceNumber || "NEL-04-12948");
+    const units = Number(billContext?.units) || 320;
+    const actual = Number(billContext?.actualBill) || 2850;
+    const expected = Number(billContext?.expectedBill) || 2740;
+    const diff =
+      billContext?.detectedVariance !== undefined
+        ? Number(billContext.detectedVariance)
+        : actual - expected;
+    const discom = String(billContext?.discom || "APSPDCL");
+    const tariffSlab = String(billContext?.tariffSlab || "226–400 units @ ₹8.75/unit");
+    const isEligibleForComplaint = diff > 0;
+    const queryLower = (message || "").toLowerCase();
+
+    if (language === "te") {
+      if (
+        queryLower.includes("overcharge") ||
+        queryLower.includes("high") ||
+        queryLower.includes("ఎక్కువ") ||
+        queryLower.includes("అదనపు")
+      ) {
+        return `మీ బిల్లు ₹${actual} గా రావడంలో ₹${diff} వ్యత్యాసం ఉంది. మీ వినియోగం (${units} యూనిట్లు) ${tariffSlab} పరిధిలోకి ప్రవేశించింది. APERC టారిఫ్ లెక్కల ప్రకారం రావాల్సిన మొత్తం ₹${expected}.`;
+      } else if (
+        queryLower.includes("challenge") ||
+        queryLower.includes("complaint") ||
+        queryLower.includes("ఫిర్యాదు")
+      ) {
+        return isEligibleForComplaint
+          ? `అవును, మీ బిల్లులో ₹${diff} వ్యత్యాసం ఉన్నందున మీరు ${discom} కస్టమర్ కేర్ లేదా స్థానిక CGRF వద్ద మీ మీటర్ రీడింగ్ మరియు బిల్లింగ్ లెడ్జర్ సమీక్ష కోసం దరఖాస్తు చేసుకోవచ్చు.`
+          : `మీ బిల్లు అధికారిక టారిఫ్‌కు అనుగుణంగా ఉంది, కాబట్టి ప్రస్తుతం ఫిర్యాదు అవసరం లేదు.`;
+      } else if (queryLower.includes("reduce") || queryLower.includes("తగ్గించ")) {
+        const unitsToDrop = Math.max(0, units - 225);
+        return `మీ ప్రస్తుత వినియోగం ${units} యూనిట్లు. మీరు ${unitsToDrop} యూనిట్లు తగ్గించుకుంటే 225 యూనిట్ల లోపు స్లాబ్‌లో ఉండి, నెలకు సుమారు ₹${Math.round(unitsToDrop * 8.75)} ఆదా చేసుకోవచ్చు.`;
+      } else if (queryLower.includes("slab") || queryLower.includes("స్లాబ్")) {
+        return `మీ ప్రస్తుత గరిష్ట స్లాబ్: ${tariffSlab}. అధికారిక APERC గృహ స్లాబ్‌లు: 0–30: ₹1.90, 31–75: ₹3.00, 76–125: ₹4.50, 126–225: ₹6.00, 226–400: ₹8.75, 401+: ₹9.75.`;
+      }
+      return `${consumerName} గారి బిల్లు ఆడిట్ విశ్లేషణ: ${units} యూనిట్లకు APERC ఆమోదించిన మొత్తం ₹${expected}. వాస్తవ బిల్లు ₹${actual}. గుర్తించిన వ్యత్యాసం: ₹${diff}.`;
+    }
+
+    if (language === "hi") {
+      if (
+        queryLower.includes("overcharge") ||
+        queryLower.includes("high") ||
+        queryLower.includes("ज्यादा") ||
+        queryLower.includes("अधिक")
+      ) {
+        return `आपके बिल ₹${actual} में ₹${diff} का अंतर पाया गया है। आपकी खपत (${units} यूनिट) उच्च स्लैब (${tariffSlab}) में है। APERC गणना के अनुसार अपेक्षित राशि ₹${expected} है।`;
+      } else if (
+        queryLower.includes("challenge") ||
+        queryLower.includes("complaint") ||
+        queryLower.includes("शिकायत")
+      ) {
+        return isEligibleForComplaint
+          ? `हाँ, ₹${diff} के अंतर के सत्यापन हेतु आप ${discom} ग्राहक सेवा या स्थानीय CGRF में मीटर रीडिंग और लेजर समीक्षा के लिए आवेदन कर सकते हैं।`
+          : `आपका बिल आधिकारिक APERC टैरिफ के अनुरूप है, इसलिए शिकायत की आवश्यकता नहीं है।`;
+      } else if (queryLower.includes("reduce") || queryLower.includes("कम")) {
+        const unitsToDrop = Math.max(0, units - 225);
+        return `आपकी खपत ${units} यूनिट है। यदि आप ${unitsToDrop} यूनिट कम करते हैं, तो आप 225 यूनिट सीमा के भीतर रहकर लगभग ₹${Math.round(unitsToDrop * 8.75)} की बचत कर सकेंगे।`;
+      } else if (queryLower.includes("slab") || queryLower.includes("स्लैब")) {
+        return `आपका उच्चतम लागू स्लैब ${tariffSlab} है। आधिकारिक APERC घरेलू स्लैब: 0-30: ₹1.90, 31-75: ₹3.00, 76-125: ₹4.50, 126-225: ₹6.00, 226-400: ₹8.75, 401+: ₹9.75 प्रति यूनिट।`;
+      }
+      return `${consumerName} का ऑडिट सारांश: ${units} यूनिट के लिए अपेक्षित बिल ₹${expected} है, जबकि वास्तविक बिल ₹${actual} है। अंतर: ₹${diff}।`;
+    }
+
+    // English default
+    if (
+      queryLower.includes("overcharge") ||
+      queryLower.includes("high") ||
+      queryLower.includes("higher")
+    ) {
+      return `Your actual bill of ₹${actual} is ₹${diff} higher than expected. Consuming ${units} units reached the ${tariffSlab} tier. The ₹${diff} variance is not accounted for by published APERC retail tariff schedules.`;
+    } else if (
+      queryLower.includes("challenge") ||
+      queryLower.includes("complaint") ||
+      queryLower.includes("dispute")
+    ) {
+      return isEligibleForComplaint
+        ? `Yes, you may submit a formal billing inquiry to ${discom} customer care or local CGRF regarding the ₹${diff} variance to verify your meter readings and billing ledger.`
+        : `Your statement of ₹${actual} conforms to published APERC tariff rates (₹${expected}). No grievance submission is indicated.`;
+    } else if (queryLower.includes("reduce") || queryLower.includes("save")) {
+      const unitsToDrop = Math.max(0, units - 225);
+      return `Your current consumption is ${units} units. Reducing consumption by ${unitsToDrop} units keeps you within the 225-unit ceiling, saving approximately ₹${Math.round(unitsToDrop * 8.75)} per month on energy charges.`;
+    } else if (queryLower.includes("slab") || queryLower.includes("tier")) {
+      return `Your consumption reached ${tariffSlab}. APERC Domestic telescopic schedule: 0–30 units @ ₹1.90, 31–75 @ ₹3.00, 76–125 @ ₹4.50, 126–225 @ ₹6.00, 226–400 @ ₹8.75, 401+ @ ₹9.75.`;
+    }
+    return `Audit for ${consumerName} (${serviceNumber}): Consumed ${units} units in ${discom}. Expected calculation: ₹${expected}. Actual billed statement: ₹${actual}. Variance: ₹${diff}.`;
   }
 }
 

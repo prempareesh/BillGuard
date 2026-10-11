@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getApiBaseUrl } from "@/lib/config";
 
 // Server-side environment key only — never exposed to client
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "";
@@ -85,13 +86,6 @@ export async function POST(req: NextRequest) {
       return NextResponse.json(
         { error: "Too many requests. Please wait a minute before making more requests." },
         { status: 429 }
-      );
-    }
-
-    if (!GEMINI_API_KEY) {
-      return NextResponse.json(
-        { error: "Gemini API service is not configured on the server. Please set GEMINI_API_KEY in environment variables." },
-        { status: 503 }
       );
     }
 
@@ -297,6 +291,27 @@ Keep response direct, authoritative, and under 120 words. No AI fluff. Do not ma
 `;
 
       try {
+        if (!GEMINI_API_KEY) {
+          // Forward server-side to FastAPI backend where GEMINI_API_KEY is configured
+          const backendRes = await fetch(`${getApiBaseUrl()}/api/ai/chat`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              message,
+              language,
+              bill_context: billContext,
+            }),
+            signal: AbortSignal.timeout(15000),
+          });
+          if (backendRes.ok) {
+            const data = await backendRes.json();
+            if (data.reply) {
+              return NextResponse.json({ success: true, reply: data.reply, source: "backend-gemini" });
+            }
+          }
+          throw new Error("FastAPI backend chat endpoint unavailable");
+        }
+
         const rawText = await callGemini([{ parts: [{ text: promptText }] }]);
         return NextResponse.json({ success: true, reply: rawText.trim(), source: "gemini" });
       } catch (err) {

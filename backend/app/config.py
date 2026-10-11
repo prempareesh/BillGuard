@@ -38,19 +38,24 @@ class Settings(BaseModel):
     @property
     def cors_origins(self) -> list[str]:
         raw = os.getenv("CORS_ORIGINS", "")
+        origins: list[str] = []
         if raw.strip():
-            return [origin.strip() for origin in raw.split(",") if origin.strip()]
-        if self.environment == "production":
-            return [
-                "https://billguard.app",
-                "https://api.billguard.app",
-            ]
-        return [
+            origins.extend([origin.strip().rstrip("/") for origin in raw.split(",") if origin.strip()])
+
+        # Standard allowed origins
+        defaults = [
+            "https://main.d3nztc0st9o9ku.amplifyapp.com",
+            "https://billguard.app",
+            "https://api.billguard.app",
             "http://localhost:3000",
             "http://localhost:3001",
             "http://127.0.0.1:3000",
             "http://127.0.0.1:3001",
         ]
+        for d in defaults:
+            if d not in origins:
+                origins.append(d)
+        return origins
 
 settings = Settings()
 
