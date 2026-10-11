@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 320" width="100%" height="auto" style="border-radius: 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="archBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFCFA" />
+      <stop offset="100%" stop-color="#F5F3EC" />
+    </linearGradient>
+    <linearGradient id="archLime" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4F788" />
+      <stop offset="100%" stop-color="#C6F36A" />
+    </linearGradient>
+    <linearGradient id="archMint" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CEF3DA" />
+      <stop offset="100%" stop-color="#B8E8C8" />
+    </linearGradient>
+    <filter id="archShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#171A17" flood-opacity="0.04" />
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#171A17" flood-opacity="0.02" />
+    </filter>
+  </defs>
+
+  <!-- Background Base Canvas -->
+  <rect width="1100" height="320" rx="14" fill="url(#archBg)" stroke="#E5E3D8" stroke-width="1.5" />
+
+  <!-- Section Header -->
+  <g transform="translate(48, 30)">
+    <text x="0" y="0" font-size="11" font-weight="700" fill="#62685F" letter-spacing="1.5">SIMPLIFIED SYSTEM ARCHITECTURE</text>
+    <text x="0" y="20" font-size="18" font-weight="800" fill="#171A17">Clean, decoupled full-stack design.</text>
+  </g>
+
+  <!-- Flow Arrows connecting the cards -->
+  <g stroke="#C2C0B4" stroke-width="2" fill="none" stroke-linecap="round">
+    <!-- Consumer to Frontend -->
+    <path d="M 200 160 L 260 160" />
+    <polygon points="262,160 254,155 254,165" fill="#C2C0B4" stroke="none" />
+
+    <!-- Frontend to Backend -->
+    <path d="M 470 160 L 530 160" />
+    <polygon points="532,160 524,155 524,165" fill="#C2C0B4" stroke="none" />
+
+    <!-- Backend branching to 3 Services -->
+    <path d="M 740 160 L 780 160 L 780 100 L 820 100" />
+    <polygon points="822,100 814,95 814,105" fill="#C2C0B4" stroke="none" />
+
+    <path d="M 780 160 L 820 160" />
+    <polygon points="822,160 814,155 814,165" fill="#C2C0B4" stroke="none" />
+
+    <path d="M 780 160 L 780 220 L 820 220" />
+    <polygon points="822,220 814,215 814,225" fill="#C2C0B4" stroke="none" />
+  </g>
+
+  <!-- NODE 1: CONSUMER (Leftmost) -->
+  <g transform="translate(48, 85)" filter="url(#archShadow)">
+    <rect width="150" height="150" rx="12" fill="#FFFFFF" stroke="#E5E3D8" stroke-width="1" />
+    <circle cx="75" cy="46" r="22" fill="#F0EFEA" />
+    <!-- User Icon -->
+    <circle cx="75" cy="40" r="8" fill="#171A17" />
+    <path d="M 61 58 C 61 50, 89 50, 89 58 Z" fill="#171A17" />
+    <text x="75" y="90" font-size="14" font-weight="700" fill="#171A17" text-anchor="middle">Consumer</text>
+    <text x="75" y="108" font-size="11" fill="#62685F" text-anchor="middle">Browser / Mobile</text>
+    <rect x="25" y="120" width="100" height="18" rx="4" fill="#F8F7F2" />
+    <text x="75" y="132" font-size="10" font-weight="600" fill="#62685F" text-anchor="middle">EN / TE / HI UI</text>
+  </g>
+
+  <!-- NODE 2: FRONTEND -->
+  <g transform="translate(262, 85)" filter="url(#archShadow)">
+    <rect width="206" height="150" rx="12" fill="#FFFFFF" stroke="#E5E3D8" stroke-width="1" />
+    <circle cx="36" cy="36" r="16" fill="url(#mintAccent)" />
+    <text x="36" y="41" font-size="14" font-weight="800" fill="#171A17" text-anchor="middle">UI</text>
+    <text x="62" y="34" font-size="14" font-weight="700" fill="#171A17">Next.js Client</text>
+    <text x="62" y="48" font-size="11" fill="#62685F">App Router &amp; Tailwind</text>
+    
+    <g transform="translate(18, 70)">
+      <text x="0" y="14" font-size="11" fill="#171A17">• Drag-and-drop bill uploader</text>
+      <text x="0" y="32" font-size="11" fill="#171A17">• Editable field verification</text>
+      <text x="0" y="50" font-size="11" fill="#171A17">• 1-click CGRF dispute PDF</text>
+    </g>
+  </g>
+
+  <!-- NODE 3: BACKEND API GATEWAY -->
+  <g transform="translate(532, 85)" filter="url(#archShadow)">
+    <rect width="206" height="150" rx="12" fill="#FFFFFF" stroke="#A3E635" stroke-width="2" />
+    <circle cx="36" cy="36" r="16" fill="url(#archLime)" />
+    <text x="36" y="41" font-size="13" font-weight="800" fill="#171A17" text-anchor="middle">API</text>
+    <text x="62" y="34" font-size="14" font-weight="800" fill="#171A17">FastAPI Backend</text>
+    <text x="62" y="48" font-size="11" fill="#62685F">Python 3.10+ / Pydantic</text>
+    
+    <g transform="translate(18, 70)">
+      <text x="0" y="14" font-size="11" fill="#171A17">• Sliding-window rate limiter</text>
+      <text x="0" y="32" font-size="11" fill="#171A17">• Strict server credential shield</text>
+      <text x="0" y="50" font-size="11" fill="#171A17">• Local resilience fallback</text>
+    </g>
+  </g>
+
+  <!-- NODE 4A: APERC TARIFF ENGINE -->
+  <g transform="translate(824, 70)" filter="url(#archShadow)">
+    <rect width="228" height="52" rx="8" fill="#FFFFFF" stroke="#E5E3D8" stroke-width="1" />
+    <circle cx="26" cy="26" r="12" fill="url(#archLime)" />
+    <!-- Scale icon -->
+    <path d="M 26 18 V 32 M 20 22 L 26 20 L 32 22" fill="none" stroke="#171A17" stroke-width="1.5" />
+    <text x="46" y="24" font-size="12" font-weight="700" fill="#171A17">APERC Tariff Engine</text>
+    <text x="46" y="38" font-size="10" fill="#62685F">100% deterministic slab math</text>
+  </g>
+
+  <!-- NODE 4B: GOOGLE GEMINI VISION -->
+  <g transform="translate(824, 134)" filter="url(#archShadow)">
+    <rect width="228" height="52" rx="8" fill="#FFFFFF" stroke="#E5E3D8" stroke-width="1" />
+    <circle cx="26" cy="26" r="12" fill="url(#archMint)" />
+    <!-- Sparkle icon -->
+    <path d="M 26 19 L 28 23 L 32 24 L 28 25 L 26 29 L 24 25 L 20 24 L 24 23 Z" fill="#171A17" />
+    <text x="46" y="24" font-size="12" font-weight="700" fill="#171A17">Gemini Vision Service</text>
+    <text x="46" y="38" font-size="10" fill="#62685F">Document OCR &amp; advisory chat</text>
+  </g>
+
+  <!-- NODE 4C: AWS STORAGE & AUDIT LEDGER -->
+  <g transform="translate(824, 198)" filter="url(#archShadow)">
+    <rect width="228" height="52" rx="8" fill="#FFFFFF" stroke="#E5E3D8" stroke-width="1" />
+    <circle cx="26" cy="26" r="12" fill="#F0EFEA" />
+    <!-- Cloud / DB icon -->
+    <ellipse cx="26" cy="23" rx="7" ry="3" fill="none" stroke="#171A17" stroke-width="1.2" />
+    <path d="M 19 23 V 29 C 19 31, 33 31, 33 29 V 23" fill="none" stroke="#171A17" stroke-width="1.2" />
+    <text x="46" y="24" font-size="12" font-weight="700" fill="#171A17">Amazon S3 &amp; DynamoDB</text>
+    <text x="46" y="38" font-size="10" fill="#62685F">Audit ledger + local disk fallback</text>
+  </g>
+</svg>

@@ -1,558 +1,259 @@
 <div align="center">
 
-<!-- Hero Banner Vector Asset -->
-<img src="assets/readme/billguard-hero-banner.svg" alt="BillGuard — Trust in Every Unit" width="100%" />
+<!-- Hero Banner (Warm Ivory / Electric Lime Fintech Identity) -->
+<img src="assets/readme/billguard-hero-banner.svg" alt="BillGuard — Know what your electricity bill should be" width="100%" />
 
 <br />
 <br />
 
-# Every Unit Accounted For.
-### AI-Powered Electricity Bill Auditing &amp; Statutory Tariff Verification for Andhra Pradesh
-
-[![Next.js](https://img.shields.io/badge/Next.js-16.4.0-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19.3.0-149eca?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.115-059669?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![Python](https://img.shields.io/badge/Python-3.10+-3776ab?style=for-the-badge&logo=python&logoColor=white)](https://python.org/)
-[![AWS S3](https://img.shields.io/badge/Amazon%20S3-Cloud%20Storage-569A31?style=for-the-badge&logo=amazons3&logoColor=white)](https://aws.amazon.com/s3/)
-[![AWS DynamoDB](https://img.shields.io/badge/Amazon%20DynamoDB-Audit%20Ledger-4053D6?style=for-the-badge&logo=amazondynamodb&logoColor=white)](https://aws.amazon.com/dynamodb/)
-[![APERC Regulated](https://img.shields.io/badge/APERC-Retail%20Tariff%20Engine-047857?style=for-the-badge)](https://aperc.gov.in/)
-[![Tests Passing](https://img.shields.io/badge/Tests-75%20Passing%20(100%25)-10B981?style=for-the-badge)](tests/)
-
-<br />
+# BillGuard
+### *Know what your electricity bill should be.*
 
 <p align="center">
-  <b>BillGuard</b> bridges the information asymmetry between power distribution companies (DISCOMs) and consumers in Andhra Pradesh.<br />
-  By pairing multimodal document vision with a <b>100% deterministic mathematical verification engine</b> based on gazetted <b>APERC Retail Supply Tariff Orders</b>, BillGuard inspects domestic and commercial statements, reconciles telescopic slab billing line-by-line, identifies calculation anomalies, and equips citizens with legally structured dispute drafts.
+  <b>AI-assisted electricity bill auditing that helps consumers in Andhra Pradesh compare billed charges against tariff calculations and understand potential discrepancies.</b>
 </p>
 
 <p align="center">
-  <a href="#-quick-navigation"><b>Explore Architecture</b></a> •
-  <a href="#-the-core-product-story"><b>Product Story</b></a> •
-  <a href="#-how-billguard-works"><b>Verification Pipeline</b></a> •
-  <a href="#-verified-feature-showcase"><b>Features</b></a> •
-  <a href="#-step-by-step-tariff-audit-walkthrough"><b>Tariff Walkthrough</b></a> •
-  <a href="#-local-development--installation"><b>Run Locally</b></a>
+  <a href="#-from-electricity-bill-to-clarity"><b>Explore Workflow</b></a> •
+  <a href="#-quick-start"><b>Run Locally</b></a> •
+  <a href="#-technology-stack"><b>Tech Stack</b></a> •
+  <a href="docs/TARIFF_METHODOLOGY.md"><b>Tariff Methodology</b></a> •
+  <a href="docs/ARCHITECTURE.md"><b>Architecture Docs</b></a>
 </p>
+
+<br />
 
 </div>
 
 ---
 
-## 🧭 Quick Navigation
+## ⚡ Electricity bills should be understandable.
 
-- [The Core Product Story](#-the-core-product-story)
-- [How BillGuard Works (Pipeline)](#-how-billguard-works)
-- [Verified Feature Showcase](#-verified-feature-showcase)
-- [Step-by-Step Tariff Audit Walkthrough](#-step-by-step-tariff-audit-walkthrough)
-- [Technical Architecture](#-technical-architecture)
-- [Technology Stack](#-technology-stack)
-- [Project Structure](#-project-structure)
-- [Local Development & Installation](#-local-development--installation)
-- [Security & Responsible Use](#-security--responsible-use)
-- [Visual Showcase & Screenshots](#-visual-showcase--screenshots)
-- [Roadmap & Contributing](#-roadmap--contributing)
-- [License & Disclaimers](#-license--disclaimers)
+Every month, millions of households in Andhra Pradesh receive utility statements with complex telescopic slabs, customer charges, fixed connection fees, and electricity duties. When charges spike, consumers cannot easily distinguish between increased seasonal consumption and billing calculation anomalies.
 
----
-
-## ⚡ The Core Product Story
-
-### The Consumer Dilemma
-
-Every month, millions of residential consumers across Andhra Pradesh served by **APSPDCL**, **APEPDCL**, and **APCPDCL** receive electricity statements. For most households, deciphering these bills is nearly impossible:
-
-1. **Opaque Telescopic Slabs:** Residential energy is billed across **6 distinct consumption tiers** (from ₹1.90/unit to ₹9.75/unit). Calculating fractional consumption across slab boundaries by hand requires complex tabular arithmetic.
-2. **Additional Statutory Line Items:** Bills include variable customer charges, fixed connection fees, electricity duty (₹0.06/unit under the AP Electricity Duty Act), and Fuel & Power Purchase Cost Adjustments (FPPCA).
-3. **Information Asymmetry:** When a bill surges unexpectedly, consumers cannot easily distinguish between increased seasonal consumption, slab progression, meter reading recording errors, or billing calculation anomalies.
-4. **Daunting Dispute Process:** Filing a complaint with the **Consumer Grievance Redressal Forum (CGRF)** or Electricity Ombudsman requires formal citations of specific APERC tariff order clauses, account numbers, and itemized variance breakdowns.
-
-```
-+--------------------------------------------------------------------------------------------------+
-|                                    BEFORE BILLGUARD vs. WITH BILLGUARD                           |
-+--------------------------------------------------------------------------------------------------+
-| WITHOUT BILLGUARD                               | WITH BILLGUARD                                 |
-| ----------------------------------------------- | ---------------------------------------------- |
-| • Opaque, confusing paper statement             | • Clear, itemized, unit-by-unit visual audit   |
-| • 6 telescopic slab rates calculated in secret  | • 100% deterministic APERC tariff math engine  |
-| • Uncertainty over meter reads and surcharges   | • Automated meter delta & duty reconciliation  |
-| • Confusing technical jargon                    | • Trilingual plain-language guidance (EN/TE/HI)|
-| • Powerless consumer with no recourse           | • 1-click statutory CGRF dispute draft ready   |
-+--------------------------------------------------------------------------------------------------+
-```
+BillGuard eliminates this confusion by providing structured extraction, transparent mathematical audits, and consumer dispute tools.
 
 <div align="center">
-  <img src="assets/readme/billguard-comparison.svg" alt="Before vs With BillGuard Comparison" width="100%" />
+  <img src="assets/readme/billguard-comparison.svg" alt="Before and After BillGuard" width="100%" />
 </div>
+
+<br />
 
 > [!NOTE]
-> **Responsible Verification Disclosure:** BillGuard audits are mathematical comparisons between bill line items and published APERC tariff schedules. Audit variances highlight potential discrepancies for consumer inspection and do not automatically prove DISCOM misconduct. Final billing outcomes depend on billing cycle duration, meter accuracy, sanctioned load, and official meter inspection records.
+> **Responsible Verification:** BillGuard audits compare bill figures with published APERC tariff schedules. Variances serve as signals for review and do not guarantee an error or a refund. Final billing outcomes depend on billing cycle length, sanctioned load, and physical meter inspection records.
 
 ---
 
-## 🔄 How BillGuard Works
+## 🎬 Live Verification in Motion
 
-BillGuard follows a disciplined, 6-stage verification pipeline with a **human-in-the-loop review** stage to guarantee that deterministic calculations are never executed on unverified OCR assumptions.
+Watch the seamless transition from raw electricity statement to a verified audit report and pre-filled dispute letter:
 
 <div align="center">
-  <img src="assets/readme/billguard-workflow.svg" alt="BillGuard 6-Stage Audit Workflow" width="100%" />
+  <img src="assets/readme/billguard-hero-motion.gif" alt="BillGuard Automated Verification Pipeline Motion" width="100%" style="border-radius: 12px; border: 1px solid #E5E3D8;" />
 </div>
 
-### The 6 Stages of Verification
+### Genuine Product Interface
 
-```mermaid
-flowchart LR
-    A["1. Bill Ingestion<br/>(PDF / JPG Scan)"] --> B["2. Vision OCR<br/>(Multimodal Gemini)"]
-    B --> C["3. Consumer Review<br/>(Human-in-the-Loop)"]
-    C --> D["4. APERC Engine<br/>(Deterministic Math)"]
-    D --> E["5. Variance Analysis<br/>(₹25 Dispute Threshold)"]
-    E --> F["6. Action Center<br/>(CGRF Dispute Letter)"]
+Captured directly from the running BillGuard application (`http://localhost:3000`):
 
-    style A fill:#064E3B,stroke:#10B981,stroke-width:2px,color:#FFFFFF
-    style B fill:#064E3B,stroke:#10B981,stroke-width:2px,color:#FFFFFF
-    style C fill:#065F46,stroke:#34D399,stroke-width:2px,color:#FFFFFF
-    style D fill:#047857,stroke:#6EE7B7,stroke-width:3px,color:#FFFFFF
-    style E fill:#064E3B,stroke:#10B981,stroke-width:2px,color:#FFFFFF
-    style F fill:#064E3B,stroke:#10B981,stroke-width:2px,color:#FFFFFF
-```
+<div align="center">
 
-1. **Bill Ingestion:** The consumer uploads a PDF statement or high-resolution mobile camera scan of an APSPDCL, APEPDCL, or APCPDCL bill. The original document is archived securely to an Amazon S3 bucket (or local encrypted storage in development mode).
-2. **Vision Extraction:** Server-side Google Gemini multimodal extraction extracts key billing parameters: Consumer Service Number, Billing Month/Cycle, Meter Reads (Previous & Current), Units Consumed, Billed Energy Charges, Customer Charges, Fixed Charges, and Total Billed Amount.
-3. **Consumer Verification (Human-in-the-Loop):** The extracted numbers are presented to the consumer in an interactive editable review sheet. The consumer can inspect, confirm, or amend any OCR field before running the audit.
-4. **Deterministic APERC Calculation:** The tariff engine resolves the applicable gazetted tariff schedule (e.g., `APERC-TO-2026-27` or `APERC-TO-2024-25`), computes domestic telescopic slab costs, adds statutory customer charges, fixed charges, AP electricity duty (₹0.06/unit), and FPPCA.
-5. **Variance Classification:** The computed total is reconciled against the actual bill:
-   - **`Verified` (Green):** Calculated amount matches actual bill within statutory rounding (or $|variance| \le ₹25.00$).
-   - **`Potential Overcharge` (Red):** Actual bill exceeds verified APERC math by $> ₹25.00$.
-   - **`Review Recommended` (Orange):** Undercharge $> ₹25.00$ or meter read delta mismatch ($|\Delta meter - units| > 2$).
-6. **Action & Dispute Resolution:** For any flagged discrepancy, BillGuard generates an itemized audit certificate and drafts a formal, pre-filled grievance letter addressed to the respective DISCOM Circle Forum under **APERC Consumer Grievance Redressal Forum Regulations**.
+| Consumer Dashboard &amp; Analytics | Bill Upload &amp; Field Verification |
+| :---: | :---: |
+| <img src="assets/readme/screenshots/01-dashboard-overview.png" alt="BillGuard Consumer Dashboard" width="100%" style="border-radius: 8px; border: 1px solid #E5E3D8;" /> | <img src="assets/readme/screenshots/03-bill-upload-ocr.png" alt="BillGuard Upload and Field Review" width="100%" style="border-radius: 8px; border: 1px solid #E5E3D8;" /> |
+| *Real-time metrics, audit ledger, and savings tracking* | *Multimodal document OCR with human-in-the-loop review* |
+
+| Audit History Ledger (DynamoDB) | Consumer Profile &amp; DISCOM Settings |
+| :---: | :---: |
+| <img src="assets/readme/screenshots/04-bill-history-ledger.png" alt="BillGuard Audit History Ledger" width="100%" style="border-radius: 8px; border: 1px solid #E5E3D8;" /> | <img src="assets/readme/screenshots/05-consumer-profile.png" alt="BillGuard Consumer Profile" width="100%" style="border-radius: 8px; border: 1px solid #E5E3D8;" /> |
+| *Chronological ledger with persistent cloud sync* | *Configurable account settings and DISCOM circle office* |
+
+</div>
+
+<p align="center">
+  <a href="docs/SCREENSHOTS.md"><b>View Full Resolution Screenshot Specifications →</b></a>
+</p>
 
 ---
 
-## 🌟 Verified Feature Showcase
+## 🔄 From electricity bill to clarity.
 
-Every feature listed below is verified in the active codebase with passing automated test suites.
+BillGuard enforces a disciplined five-stage verification pipeline that keeps the consumer in full control of their data.
 
-| Feature | Consumer Benefit | Implementation Status | Core Technologies |
-| :--- | :--- | :---: | :--- |
-| **Deterministic APERC Tariff Engine** | Calculates exact energy charges across 6 telescopic domestic slabs, electricity duty, and customer charges according to official APERC gazette orders. | `IMPLEMENTED` | Python 3.10+, FastAPI, Pydantic |
-| **Multimodal Vision OCR Extraction** | Ingests PDF bills and camera scans, extracting service number, units, meter readings, and billed line items without requiring manual data entry. | `IMPLEMENTED` | Google Gemini API (Server-Side), Boto3 S3 |
-| **Human-in-the-Loop Field Editor** | Allows consumers to inspect and fine-tune extracted OCR numbers prior to calculation, preventing false positives from poor photo quality. | `IMPLEMENTED` | React 19, TypeScript 5, Tailwind CSS 4 |
-| **Meter Delta Verification** | Compares $(Current\ Read - Previous\ Read)$ against billed units to detect transcription and meter rollover errors. | `IMPLEMENTED` | `tariff_engine.py`, Next.js UI |
-| **Trilingual Support (EN / TE / HI)** | Full UI and explanation localization in English, Telugu (**తెలుగు**), and Hindi (**हिंदी**), enabling accessible utility advocacy across Andhra Pradesh. | `IMPLEMENTED` | `i18next`, `react-i18next`, Custom Locales |
-| **Statutory CGRF Dispute Draft Generator** | Pre-fills formal grievance petitions addressed to DISCOM Circle Consumer Grievance Redressal Forums with exact APERC schedule citations. | `IMPLEMENTED` | `ai.py`, `ComplaintSection.tsx`, `jsPDF` |
-| **Amazon DynamoDB Audit Ledger** | Persists audit history records, grievance drafts, and variance metrics in a high-throughput single table (`BillGuardAudits`) keyed by `auditId`. | `IMPLEMENTED` | Amazon DynamoDB, Boto3, `dynamoStore.ts` |
-| **Amazon S3 Document Vault** | Archives original uploaded bill PDFs and images in S3 (`billguard-documents-pream-2026`) with signed access URLs. | `IMPLEMENTED` | Amazon S3, Boto3, `s3_service.py` |
-| **Resilient Local Fallback Engine** | Ensures seamless local development and offline resilience by providing disk-backed JSON persistence when AWS credentials are not configured. | `IMPLEMENTED` | `dynamo_service.py`, `s3_service.py` |
-| **Interactive Electricity Assistant** | Conversational assistant providing plain-language explanations of complex utility charges, fixed tariffs, and energy-saving recommendations. | `IMPLEMENTED` | Server-side Gemini, `AIAssistantChat.tsx` |
-
-<details>
-<summary><b>View Roadmap &amp; Planned Future Capabilities</b></summary>
+<div align="center">
+  <img src="assets/readme/billguard-workflow.svg" alt="Five-Stage Verification Workflow" width="100%" />
+</div>
 
 <br />
 
-The following capabilities are planned for upcoming releases:
-- [ ] **Smart Meter (AMI) Telemetry:** Direct integration with smart meter interval consumption feeds.
-- [ ] **Multi-State Tariff Expansion:** Deterministic tariff engines for Telangana (**TSERC**), Karnataka (**KERC**), and Tamil Nadu (**TNERC**).
-- [ ] **Direct DISCOM CGRF Submission:** Direct API gateway integration to submit grievance petitions into APSPDCL / APEPDCL online portals.
-
-</details>
-
----
-
-## 🧮 Step-by-Step Tariff Audit Walkthrough
-
-To understand the mathematical rigor of BillGuard's engine, consider this illustrative verification walkthrough for a domestic residential connection (**LT-I Domestic Category**) under the **APERC Retail Supply Tariff Order FY 2026–27**.
+1. **Upload:** The consumer selects an electricity bill (PDF document or camera photo).
+2. **Extract:** Server-side AI vision processes the document and identifies service numbers, meter reads, units, and billed amounts.
+3. **Review:** The consumer checks and fine-tunes extracted values in an interactive review sheet before any calculation occurs.
+4. **Audit:** A 100% deterministic mathematical engine calculates expected charges using gazetted APERC retail tariff schedules.
+5. **Act:** The consumer reviews the variance breakdown and can generate a formal CGRF dispute draft if an overcharge is identified.
 
 > [!TIP]
-> **Walkthrough Parameters:** 
-> - **Category:** LT-I Domestic (Telescopic)
-> - **Billed Consumption:** **240 Units (kWh)**
-> - **Actual Bill Amount:** **₹1,420.00**
-
-### 1. Telescopic Energy Charges Calculation
-
-APERC mandates a progressive telescopic tariff structure where units consumed are split across brackets:
-
-```
-Units 0 - 30    :  30 units  ×  ₹1.90/unit  =  ₹  57.00
-Units 31 - 75   :  45 units  ×  ₹3.00/unit  =  ₹ 135.00
-Units 76 - 125  :  50 units  ×  ₹4.50/unit  =  ₹ 225.00
-Units 126 - 225 : 100 units  ×  ₹6.00/unit  =  ₹ 600.00
-Units 226 - 240 :  15 units  ×  ₹8.75/unit  =  ₹ 131.25
-------------------------------------------------------------
-Total Energy Charges (240 units)            =  ₹1,148.25
-```
-
-### 2. Statutory Levies and Fixed Charges
-
-```
-+ Fixed Connection Charges (Domestic Baseline)       =  ₹  30.00
-+ Customer Charges (Bracket: 226–400 units)          =  ₹  55.00
-+ Electricity Duty (240 units × ₹0.06 / unit)        =  ₹  14.40
-+ FPPCA Fuel Surcharge (240 units × ₹0.15 / unit)    =  ₹  36.00
-------------------------------------------------------------
-Calculated Statutory Total                          =  ₹1,283.65
-Statutory Rounding under Supply Code (Nearest Rupee) =  ₹1,284.00
-```
-
-### 3. Variance & Audit Classification
-
-$$\text{Variance} = \text{Actual Billed Amount} - \text{Expected Verified Total}$$
-$$\text{Variance} = ₹1,420.00 - ₹1,284.00 = \mathbf{+₹136.00}$$
-
-```
-+--------------------------------------------------------------------------------------------------+
-| AUDIT ENGINE DECISION MATRIX                                                                     |
-+--------------------------------------------------------------------------------------------------+
-| Metric               | Value              | Regulatory Rule / Status                             |
-+----------------------+--------------------+------------------------------------------------------+
-| Actual Billed Amount | ₹1,420.00          | Line item on consumer electricity statement          |
-| APERC Expected Total | ₹1,284.00          | 100% deterministic mathematical evaluation           |
-| Variance (Δ)         | +₹136.00           | Consumer billed higher than tariff schedule          |
-| Dispute Threshold    | ₹25.00             | Exceeds statutory materiality threshold              |
-| Classification       | POTENTIAL OVERCHARGE | Marked as red badge in BillGuard dashboard         |
-| Recommended Action   | Generate Dispute   | CGRF grievance letter drafted with APERC citations   |
-+--------------------------------------------------------------------------------------------------+
-```
+> **Deterministic vs. Generative:** AI is used solely for document OCR extraction and natural-language explanations. All tariff arithmetic, slab allocations, and variance calculations are executed by **deterministic Python code** with zero model hallucination.
 
 ---
 
-## 🏛️ Technical Architecture
+## 🌟 Main Capabilities
 
-BillGuard utilizes a modern decoupled full-stack architecture designed for enterprise reliability, high-speed calculation, and strict data security.
+A compact suite of tools designed for consumer advocacy and billing transparency:
 
-```mermaid
-flowchart TB
-    subgraph Client["Consumer Client (Browser / Mobile)"]
-        UI["Next.js 15 + React 19 Frontend<br/>(Tailwind CSS 4 + Lucide Icons)"]
-        I18N["Trilingual Localization Engine<br/>(English | Telugu | Hindi)"]
-        PDF["Client-Side PDF Generator<br/>(jsPDF Formal CGRF Letters)"]
-    end
+<div align="center">
 
-    subgraph SecurityBoundary["Backend Security Boundary (FastAPI 0.115)"]
-        API["FastAPI Gateway & Rate Limiter<br/>(60 req/min Sliding Window)"]
-        
-        subgraph CoreEngine["Deterministic Core"]
-            TE["APERC Tariff Engine<br/>(Telescopic Slabs & FY Resolver)"]
-            VD["Variance & Delta Classifier<br/>(₹25 Dispute Threshold)"]
-        end
+| Feature | User Benefit |
+| :--- | :--- |
+| **📄 AI-Assisted Bill Extraction** | Automatically parses messy utility bills and camera photos into clean structured fields. |
+| **📐 Deterministic Tariff Calculations** | Accurately calculates charges across all 6 APERC domestic telescopic slabs and statutory duties. |
+| **✏️ Human-in-the-Loop Review** | Enables consumers to inspect and correct extracted OCR numbers before running audits. |
+| **🔍 Expected-vs-Actual Variance Analysis** | Detects calculation anomalies and flags variances exceeding the ₹25 review threshold. |
+| **🌐 Multilingual Guidance** | Delivers plain-language billing explanations localized in English, Telugu (**తెలుగు**), and Hindi (**हिंदी**). |
+| **⚖️ CGRF Dispute Draft Preparation** | Automatically formats formal complaint petitions citing gazetted tariff order clauses ready to submit. |
 
-        subgraph AIService["AI & Multimodal Services"]
-            GEM["Google Gemini Vision API<br/>(Document OCR & Field Extraction)"]
-            CHAT["Electricity Advisory Engine<br/>(Plain-Language Explanations)"]
-        end
+</div>
 
-        subgraph Persistence["Storage & Cloud Persistence"]
-            S3["Amazon S3 Document Vault<br/>(billguard-documents-pream-2026)"]
-            DDB["Amazon DynamoDB Audit Table<br/>(BillGuardAudits / PK: auditId)"]
-            FALLBACK["Local Resilient Fallback<br/>(Disk JSON & Uploads Storage)"]
-        end
-    end
+---
 
-    UI -->|"1. Upload Bill File"| API
-    UI -->|"2. Submit Audit Request"| API
-    API -->|"Extract Fields"| GEM
-    API -->|"Compute Slabs"| TE
-    TE --> VD
-    API -->|"Archive Bill"| S3
-    API -->|"Persist Audit"| DDB
-    DDB -.->|"Fallback if AWS offline"| FALLBACK
-    S3 -.->|"Fallback if AWS offline"| FALLBACK
-    API -->|"Return Verified Audit JSON"| UI
-    UI --> I18N
-    UI --> PDF
+## 🧮 Tariff Reconciliation at a Glance
+
+BillGuard reconciles electricity statements against official retail supply tariff schedules. Below is an illustrative demonstration of how charges are audited:
+
+<div align="center">
+  <img src="assets/readme/billguard-audit-example.svg" alt="Tariff Calculation at a Glance" width="100%" />
+</div>
+
+<br />
+
+```
+Illustrative Audit Summary (LT-I Domestic • 240 Units Consumed)
+─────────────────────────────────────────────────────────────────────────────
+• Slab 1 (0 – 30 u @ ₹1.90)       : ₹  57.00
+• Slab 2 (31 – 75 u @ ₹3.00)      : ₹ 135.00
+• Slab 3 (76 – 125 u @ ₹4.50)     : ₹ 225.00
+• Slab 4 (126 – 225 u @ ₹6.00)    : ₹ 600.00
+• Slab 5 (226 – 240 u @ ₹8.75)    : ₹ 131.25
+• Fixed Connection & Customer Fees: ₹  85.00
+• Electricity Duty & Fuel Surcharge: ₹  50.40
+─────────────────────────────────────────────────────────────────────────────
+APERC Expected Subtotal           : ₹1,283.65 (Rounded to ₹1,284.00)
+Actual Billed Amount              : ₹1,420.00
+Identified Variance               : +₹136.00 (Exceeds ₹25 review threshold)
+Recommended Action                : Generate CGRF Formal Dispute Letter
 ```
 
-### Security & Credential Boundary
+*For complete mathematical formulas, customer charge tiers, and statutory rounding rules, see [`docs/TARIFF_METHODOLOGY.md`](docs/TARIFF_METHODOLOGY.md).*
 
-- **No Secrets in Frontend:** All third-party communication with the Google Gemini API and AWS services (`boto3`) executes exclusively inside the FastAPI backend. No API keys or AWS credentials exist in client bundles.
-- **Role-Based IAM:** Designed for AWS deployment using IAM execution roles (**AWS App Runner** or **Amazon ECS**) with least-privilege permissions (`s3:PutObject`, `s3:GetObject`, `dynamodb:PutItem`, `dynamodb:GetItem`, `dynamodb:DeleteItem`).
-- **Resilient Fallback Mode:** In development environments without active AWS credentials, BillGuard switches automatically to local filesystem storage (`backend/storage/`), ensuring complete offline feature parity.
+---
+
+## 🏛️ Simplified Architecture
+
+BillGuard utilizes a decoupled full-stack architecture that keeps third-party credentials strictly shielded on the backend:
+
+<div align="center">
+  <img src="assets/readme/billguard-architecture.svg" alt="Simplified Architecture Diagram" width="100%" />
+</div>
+
+<br />
+
+- **Next.js Client (React 19):** Responsive frontend providing drag-and-drop bill ingestion, editable verification fields, and client-side PDF export.
+- **FastAPI Gateway (Python):** High-speed asynchronous backend handling rate limiting (60 req/min sliding window), credential management, and routing.
+- **APERC Engine:** Deterministic Python tariff module modeling gazetted APERC orders for APSPDCL, APEPDCL, and APCPDCL.
+- **Google Gemini API:** Server-side multimodal vision service extracting document text without training foundational models on consumer data.
+- **Amazon S3 & DynamoDB:** Cloud storage for bill archives (`billguard-documents-pream-2026`) and audit records (`BillGuardAudits`) in `ap-southeast-2`, with **automatic local fallback storage** for offline development.
+
+*For detailed data schemas, rate limiting, and AWS IAM policies, see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).*
 
 ---
 
 ## 🛠️ Technology Stack
 
-| Layer | Technology | Version | Purpose in BillGuard |
-| :--- | :--- | :---: | :--- |
-| **Frontend Framework** | **Next.js** (App Router) | `16.4.0` | Server-rendered React application framework |
-| **UI Library** | **React** | `19.3.0` | Component-based reactive user interface |
-| **Styling System** | **Tailwind CSS** | `^4.0` | Utility-first styling with emerald/forest green theme |
-| **State Management** | **Zustand** | `^5.0` | Lightweight, scalable client audit state management |
-| **Icons & Visuals** | **Lucide React** | `^1.53` | Clean, accessible utility and verification iconography |
-| **Document Export** | **jsPDF** | `^4.2` | Client-side generation of formal CGRF dispute PDFs |
-| **Localization** | **i18next** | `^26.4` | Trilingual translation engine (English, Telugu, Hindi) |
-| **Backend Framework** | **FastAPI** | `0.115` | High-performance asynchronous Python REST API |
-| **Data Validation** | **Pydantic** | `^2.8` | Strict schema validation for billing and audit payloads |
-| **AI Vision & Chat** | **Google Gemini** | `2.5 Flash` | Multimodal document parsing and conversational assistant |
-| **Cloud Storage** | **Amazon S3** | `ap-southeast-2` | Document vault for bill PDFs and verification images |
-| **Audit Persistence** | **Amazon DynamoDB** | `ap-southeast-2` | NoSQL ledger storing audit records and dispute cases |
-| **AWS SDK** | **Boto3** | `^1.35` | Official AWS SDK for Python backend integration |
-| **Language Runtime** | **Python** | `3.10+` | Core execution environment for tariff engine |
-| **Language Runtime** | **Node.js** | `18+` | Next.js frontend execution and test runtime |
+| Layer | Technologies | Purpose |
+| :--- | :--- | :--- |
+| **Frontend** | **Next.js 16** (App Router), **React 19**, **Tailwind CSS 4** | Clean, responsive consumer interface |
+| **State & Tools** | **Zustand**, **Lucide React**, **jsPDF**, **i18next** | Client state, icons, PDF generation, trilingual translation |
+| **Backend** | **FastAPI 0.115**, **Python 3.10+**, **Pydantic 2.8** | Asynchronous API gateway, schemas, and rate limiter |
+| **AI Vision** | **Google Gemini 2.5 Flash** | Multimodal OCR field extraction and advisory chat |
+| **Cloud & Storage** | **Amazon S3**, **Amazon DynamoDB**, **Boto3** | Bill document vault, audit ledger, and local JSON fallback |
+| **Quality** | **75 Automated Unit & Integration Tests** | 42 frontend tests + 33 backend tests passing (100%) |
 
 ---
 
-## 📂 Project Structure
+## 🚀 Quick Start
 
-```
-BillGuard/
-├── assets/
-│   └── readme/                          # High-resolution vector diagrams for documentation
-│       ├── billguard-hero-banner.svg     # Brand mark and verification certificate banner
-│       ├── billguard-workflow.svg        # 6-stage end-to-end audit pipeline illustration
-│       └── billguard-comparison.svg      # Before vs With BillGuard comparative matrix
-├── docs/
-│   ├── SCREENSHOTS.md                   # Step-by-step visual capture and recording guide
-│   └── DEPLOYMENT.md                    # AWS App Runner & Amplify deployment manual
-├── src/                                 # Next.js 15 Frontend
-│   ├── app/
-│   │   ├── audit/                       # Interactive bill upload and audit review route
-│   │   ├── dashboard/                   # Consumer analytics, savings metrics, and charts
-│   │   ├── history/                     # Chronological audit ledger with DynamoDB sync
-│   │   ├── complaint/                   # CGRF dispute generator and letter review
-│   │   ├── profile/                     # Consumer account settings and DISCOM selection
-│   │   └── page.tsx                     # Landing page with interactive demo preview
-│   ├── components/
-│   │   ├── audit/                       # EditableBillFields, AIAssistantChat, ComplaintSection
-│   │   ├── layout/                      # Navbar, Footer, Language Selector
-│   │   └── ui/                          # Button, Modal, Card, Input primitive components
-│   ├── lib/
-│   │   ├── tariffEngine.ts              # Client-side mirror of APERC tariff calculation logic
-│   │   └── dynamoStore.ts               # Unified API client for DynamoDB and audit records
-│   └── locales/                         # Multilingual translations (en.json, te.json, hi.json)
-├── backend/                             # FastAPI Python Backend
-│   ├── app/
-│   │   ├── main.py                      # Application entry point, CORS, and rate limiting
-│   │   ├── config.py                    # Environment settings with fallback detection
-│   │   ├── tariff_engine.py             # 100% deterministic APERC math engine (LT-I Slabs)
-│   │   ├── gemini_service.py            # Multimodal vision OCR parser and prompt engineering
-│   │   ├── s3_service.py                # Amazon S3 document upload and signed URL service
-│   │   ├── dynamo_service.py            # Amazon DynamoDB single-table CRUD operations
-│   │   └── routes/                      # Modular endpoints (upload, ocr, tariff, ai, records)
-│   ├── storage/                         # Resilient local fallback storage (offline mode)
-│   │   ├── dynamodb_records.json        # Disk-backed audit ledger fallback
-│   │   └── uploads/                     # Local bill document cache
-│   └── tests/                           # Python backend test suites
-│       ├── test_api_endpoints.py        # 17 endpoint and integration tests
-│       └── test_tariff_engine.py        # 16 boundary condition and slab tests
-├── tests/                               # Frontend unit and invariant test suites
-│   ├── tariffEngine.test.ts             # 21 boundary condition tests for APERC slabs
-│   ├── workflowAndPersistence.test.ts   # 9 field correction and persistence invariant tests
-│   ├── pdfMultilingual.test.ts          # 5 PDF generation tests (EN, TE, HI)
-│   └── profile.test.ts                  # 7 consumer profile validation tests
-├── .env.example                         # Safe environment configuration template
-├── package.json                         # Node.js dependencies and test scripts
-└── README.md                            # Project documentation showcase
-```
-
----
-
-## 💻 Local Development & Installation
-
-Follow these steps to run BillGuard locally on macOS, Linux, or Windows (WSL2).
+Run BillGuard locally on macOS, Linux, or Windows (WSL2).
 
 ### Prerequisites
+- **Node.js:** `v18.17+` (v20+ recommended)
+- **Python:** `3.10+`
+- **Gemini API Key:** (Optional for local testing; required for live AI OCR via [Google AI Studio](https://aistudio.google.com/))
 
-- **Node.js:** `v18.17` or higher (`v20+` recommended)
-- **npm:** `v9+` or higher
-- **Python:** `3.10` or higher
-- **Google Gemini API Key:** (Optional for local testing; required for live AI OCR. Get one from [Google AI Studio](https://aistudio.google.com/))
-- **AWS Credentials:** (Optional; BillGuard runs seamlessly in local fallback mode if AWS credentials are not present)
-
----
-
-### Step 1: Clone the Repository
-
+### 1. Clone & Configure
 ```bash
 git clone https://github.com/prempareesh/BillGuard.git
 cd BillGuard
-```
-
----
-
-### Step 2: Configure Environment Variables
-
-Copy the provided environment template:
-
-```bash
 cp .env.example .env.local
 ```
+*(Add your `GEMINI_API_KEY` to `.env.local`. Cloud storage automatically uses local fallback if AWS credentials are not configured.)*
 
-Open `.env.local` and add your Gemini API key (all other settings have sensible defaults for local development):
-
-```ini
-# .env.local
-ENVIRONMENT=development
-GEMINI_API_KEY=your_gemini_api_key_here
-
-# AWS Infrastructure (Uses local resilient fallback if credentials not configured)
-AWS_REGION=ap-southeast-2
-DYNAMODB_TABLE_NAME=BillGuardAudits
-S3_BUCKET_NAME=billguard-documents-pream-2026
-
-# Backend Endpoint
-NEXT_PUBLIC_API_URL=http://127.0.0.1:8001
-```
-
----
-
-### Step 3: Install & Start the FastAPI Backend
-
-Open a terminal window:
-
+### 2. Start the Backend
 ```bash
 cd backend
-
-# Create and activate Python virtual environment
 python3 -m venv .venv
 source .venv/bin/activate       # On Windows: .venv\Scripts\activate
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Start FastAPI development server
 python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8001 --reload
 ```
+- Health Check: [`http://127.0.0.1:8001/health`](http://127.0.0.1:8001/health)
+- Interactive API Docs: [`http://127.0.0.1:8001/docs`](http://127.0.0.1:8001/docs)
 
-- **Backend Health Check:** [`http://127.0.0.1:8001/health`](http://127.0.0.1:8001/health)
-- **AWS Status Endpoint:** [`http://127.0.0.1:8001/api/aws/status`](http://127.0.0.1:8001/api/aws/status)
-- **Interactive Swagger Docs:** [`http://127.0.0.1:8001/docs`](http://127.0.0.1:8001/docs)
-
----
-
-### Step 4: Install & Start the Next.js Frontend
-
-Open a second terminal window in the root directory:
-
+### 3. Start the Frontend
+In a new terminal window:
 ```bash
-# Install frontend dependencies
 npm install
-
-# Start Next.js development server
 npm run dev
 ```
-
 Open [`http://localhost:3000`](http://localhost:3000) in your browser.
 
----
-
-### Step 5: Execute Test Suites
-
-BillGuard includes **75 passing automated tests** across both frontend and backend to guarantee tariff calculation invariants and persistence reliability.
-
-#### Run Frontend Tests (42 Tests)
+### 4. Run Verified Test Suites
 ```bash
+# Frontend test suite (42 tests: slabs, persistence, multilingual PDFs, profile)
 npm test
-```
-*Executes boundary tests for all 6 APERC slabs, multilingual PDF generation, workflow state persistence, and profile validation.*
 
-#### Run Backend Tariff Engine Tests (16 Tests)
-```bash
+# Backend test suite (33 tests: deterministic math & API endpoints)
 PYTHONPATH=. backend/.venv/bin/python -m unittest backend/tests/test_tariff_engine.py
-```
-*Verifies 100% deterministic mathematical calculations, customer charges, and statutory rounding invariants.*
-
-#### Run Backend API Endpoint Tests (17 Tests)
-```bash
 PYTHONPATH=. backend/.venv/bin/python -m unittest backend/tests/test_api_endpoints.py
 ```
-*Verifies rate limiting, health checks, OCR mock handling, audit CRUD, and complaint generation.*
 
 ---
 
 ## 🔒 Security & Responsible Use
 
-### Data Privacy & Bill Documents
-- **Sensitive Information Handling:** Electricity bills contain consumer names, addresses, and account numbers. In production, documents uploaded to Amazon S3 must use private access controls and server-side encryption (SSE-S3 or SSE-KMS).
-- **Transient AI Processing:** Extracted bill parameters are passed to Google Gemini strictly for OCR parsing and explanation generation. Sensitive consumer identifiers are never used to train foundational AI models.
-- **Local Fallback Isolation:** In local development mode, documents and records are stored inside `backend/storage/` which is excluded from Git via `.gitignore`.
-
-### Consumer Grievance Disclaimer
-- **Not Legal Counsel:** BillGuard is an independent auditing and consumer advocacy platform. The generated variance calculations and CGRF dispute drafts are educational tools designed to help consumers understand their utility charges.
-- **Formal Verification Required:** Consumers must verify their physical meter readings, account numbers, and billing cycle days with their local DISCOM section officer before submitting formal dispute petitions.
+- **Credential Isolation:** Google Gemini API keys and AWS credentials reside strictly on the server side. No private tokens are exposed to client-side bundles.
+- **Document Privacy:** Electricity bills contain consumer account details. Production deployments must enforce private S3 access policies and encrypted persistence. In local development mode, documents remain safely inside git-ignored local storage (`backend/storage/`).
+- **Independent Verification:** BillGuard is an educational and consumer advocacy tool. Variances should be verified with the local DISCOM section officer before submitting formal dispute petitions to the Consumer Grievance Redressal Forum.
 
 ---
 
-## 📸 Visual Showcase & Screenshots
+## 🤝 Contribution & License
 
-Capture and view the full visual interface across desktop and mobile viewports. For instructions on capturing these screens from your local instance, refer to [`docs/SCREENSHOTS.md`](docs/SCREENSHOTS.md).
-
-```
-+--------------------------------------------------------------------------------------------------+
-| APPLICATION SCREENSHOT DIRECTORY (See docs/SCREENSHOTS.md for capture specifications)           |
-+--------------------------------------------------------------------------------------------------+
-| 01. Consumer Dashboard        | Metrics cards, recent audit ledger, and consumption trends        |
-| 02. Bill Upload & OCR Review  | File drag-and-drop with interactive human-in-the-loop editor     |
-| 03. Tariff Audit Breakdown    | Telescopic slab table, fixed charges, and variance classification |
-| 04. CGRF Dispute Generator    | Pre-filled legal letter citing APERC order clauses in EN/TE/HI    |
-| 05. Bill History Ledger       | Complete audit history with DynamoDB persistence and delete flow  |
-+--------------------------------------------------------------------------------------------------+
-```
-
-| Screen | Viewport | Target Asset Path | Description |
-| :--- | :---: | :--- | :--- |
-| **01. Consumer Dashboard** | Desktop | `assets/readme/screenshots/01-dashboard-overview.png` | Overview of audited bills, identified overcharges, and monthly consumption trends. |
-| **02. Bill Upload & OCR** | Desktop | `assets/readme/screenshots/02-bill-upload-ocr.png` | Interactive upload screen showing structured field extraction and human verification. |
-| **03. Tariff Audit Breakdown** | Desktop | `assets/readme/screenshots/03-tariff-audit-breakdown.png` | Unit-by-unit telescopic breakdown showing expected vs. billed charges. |
-| **04. CGRF Dispute Draft** | Desktop | `assets/readme/screenshots/04-cgrf-dispute-draft.png` | Formal dispute letter formatted for the Consumer Grievance Redressal Forum. |
-| **05. Bill History & Ledger** | Desktop | `assets/readme/screenshots/05-bill-history-ledger.png` | Chronological ledger of verified audits with persistent DynamoDB sync. |
-
-> [!NOTE]
-> **Live Demo Availability:** A public cloud deployment on AWS App Runner & AWS Amplify is currently being finalized. In the meantime, you can run the complete project locally in under 3 minutes following the [Local Development Guide](#-local-development--installation).
-
----
-
-## 🗺️ Roadmap & Contributing
-
-### Planned Milestones
-
-- [x] **Phase 1 (Completed):** 100% deterministic APERC tariff engine for APSPDCL, APEPDCL, and APCPDCL.
-- [x] **Phase 2 (Completed):** Multimodal Gemini OCR extraction and human-in-the-loop field review sheet.
-- [x] **Phase 3 (Completed):** Amazon DynamoDB single-table audit persistence and S3 document vault with local fallback.
-- [x] **Phase 4 (Completed):** Trilingual support in English, Telugu (**తెలుగు**), and Hindi (**हिंदी**).
-- [ ] **Phase 5 (In Progress):** Public AWS deployment via AWS Amplify (Frontend) and AWS App Runner (Backend).
-- [ ] **Phase 6 (Planned):** Smart Meter interval consumption telemetry support.
-- [ ] **Phase 7 (Planned):** Multi-state regulatory engine expansion (TSERC for Telangana, KERC for Karnataka).
-
----
-
-### Contributing to BillGuard
-
-We welcome contributions from developers, energy policy researchers, and consumer advocacy specialists!
-
-1. **Fork the Repository:** Click the `Fork` button at the top right of this repository.
-2. **Create a Feature Branch:**
-   ```bash
-   git checkout -b feature/tariff-schedule-update
-   ```
-3. **Commit Your Changes:**
-   ```bash
-   git commit -m "feat: add support for commercial seasonal load tariff schedule"
-   ```
-4. **Run the Full Test Suite:**
-   ```bash
-   npm test
-   PYTHONPATH=. backend/.venv/bin/python -m unittest discover backend/tests
-   ```
-5. **Open a Pull Request:** Submit your PR against the `main` branch with a clear description of your improvements.
-
----
-
-## 📜 License & Disclaimers
+### Contributing
+Contributions to tariff schedules, localization improvements, and new state regulatory models are welcome. Please open an issue or submit a pull request against the `main` branch.
 
 ### License Status
-This project currently does not have an open-source license applied. All rights are reserved by the repository owner (`prempareesh`). If you plan to use or distribute this code in public or commercial applications, please contact the maintainer or choose an appropriate open-source license (such as the **MIT License** or **Apache 2.0**).
+This project currently does not have an open-source license applied. All rights are reserved by the repository owner (`prempareesh`). Please contact the maintainer if you wish to license this codebase for public or commercial distribution.
 
 ### Regulatory Notice
-**BillGuard** is an independent consumer utility auditing platform. It is not affiliated with, endorsed by, or operated by the **Andhra Pradesh Electricity Regulatory Commission (APERC)**, **APSPDCL**, **APEPDCL**, or **APCPDCL**. All tariff schedules and regulatory references are sourced from publicly gazetted tariff orders issued by APERC.
+**BillGuard** is an independent auditing project. It is not affiliated with, endorsed by, or operated by the **Andhra Pradesh Electricity Regulatory Commission (APERC)**, **APSPDCL**, **APEPDCL**, or **APCPDCL**. All tariff schedules are sourced from publicly gazetted regulatory orders.
 
 ---
 
 <div align="center">
 
-**Built with pride for Andhra Pradesh consumers.**<br />
-*Every Unit Accounted For.*
+**BillGuard** — *Know what your electricity bill should be.*  
+Built with pride for Andhra Pradesh consumers.
 
-[![GitHub Repo](https://img.shields.io/badge/GitHub-prempareesh%2FBillGuard-064E3B?style=flat-square&logo=github)](https://github.com/prempareesh/BillGuard)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-prempareesh%2FBillGuard-171A17?style=flat-square&logo=github)](https://github.com/prempareesh/BillGuard)
 
 </div>

@@ -1,157 +1,194 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="auto" style="border-radius: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="auto" style="border-radius: 16px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#064E3B" />
-      <stop offset="60%" stop-color="#022C22" />
-      <stop offset="100%" stop-color="#062A20" />
+    <!-- Refined Linear & Radial Gradients (Fintech Brand Palette) -->
+    <linearGradient id="heroBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFCFA" />
+      <stop offset="60%" stop-color="#F8F7F2" />
+      <stop offset="100%" stop-color="#F2EFE6" />
+    </linearGradient>
+    <linearGradient id="limeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4F788" />
+      <stop offset="100%" stop-color="#C6F36A" />
+    </linearGradient>
+    <linearGradient id="mintGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#CEF3DA" />
+      <stop offset="100%" stop-color="#B8E8C8" />
     </linearGradient>
     <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#0F382A" stop-opacity="0.95" />
-      <stop offset="100%" stop-color="#062A20" stop-opacity="0.95" />
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#FAFAF7" />
     </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#10B981" />
-      <stop offset="100%" stop-color="#34D399" />
-    </linearGradient>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#F59E0B" />
-      <stop offset="100%" stop-color="#FBBF24" />
-    </linearGradient>
-    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
-      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.3" />
+    
+    <!-- Soft Layered Dimensional Shadows -->
+    <filter id="softShadow" x="-10%" y="-10%" width="125%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#171A17" flood-opacity="0.06" />
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#171A17" flood-opacity="0.04" />
+    </filter>
+    <filter id="floatShadow" x="-15%" y="-15%" width="135%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#171A17" flood-opacity="0.08" />
+    </filter>
+    <filter id="badgeShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#171A17" flood-opacity="0.05" />
     </filter>
   </defs>
 
-  <!-- Background Base -->
-  <rect width="1200" height="380" rx="12" fill="url(#bgGradient)" />
+  <!-- Canvas Surface -->
+  <rect width="1200" height="420" rx="16" fill="url(#heroBgGrad)" stroke="#E5E3D8" stroke-width="1.5" />
 
-  <!-- Subtle Grid lines -->
-  <g stroke="#10B981" stroke-opacity="0.08" stroke-width="1">
-    <line x1="0" y1="76" x2="1200" y2="76" />
-    <line x1="0" y1="152" x2="1200" y2="152" />
-    <line x1="0" y1="228" x2="1200" y2="228" />
-    <line x1="0" y1="304" x2="1200" y2="304" />
-    <line x1="200" y1="0" x2="200" y2="380" />
-    <line x1="400" y1="0" x2="400" y2="380" />
-    <line x1="600" y1="0" x2="600" y2="380" />
-    <line x1="800" y1="0" x2="800" y2="380" />
-    <line x1="1000" y1="0" x2="1000" y2="380" />
+  <!-- Subtle Precision Geometric Grid -->
+  <g stroke="#E7E5DC" stroke-width="1" stroke-dasharray="3,3" opacity="0.65">
+    <line x1="80" y1="0" x2="80" y2="420" />
+    <line x1="240" y1="0" x2="240" y2="420" />
+    <line x1="400" y1="0" x2="400" y2="420" />
+    <line x1="560" y1="0" x2="560" y2="420" />
+    <line x1="720" y1="0" x2="720" y2="420" />
+    <line x1="880" y1="0" x2="880" y2="420" />
+    <line x1="1040" y1="0" x2="1040" y2="420" />
+    <line x1="0" y1="105" x2="1200" y2="105" />
+    <line x1="0" y1="210" x2="1200" y2="210" />
+    <line x1="0" y1="315" x2="1200" y2="315" />
   </g>
 
-  <!-- Decorative Circuit Pulses -->
-  <path d="M 60 190 Q 220 190 320 280 T 540 280" fill="none" stroke="#10B981" stroke-opacity="0.25" stroke-width="2" stroke-dasharray="6,6" />
-  <circle cx="540" cy="280" r="4" fill="#34D399" opacity="0.6" />
-
-  <!-- Left Column: Branding & Headline -->
-  <g transform="translate(64, 52)">
-    <!-- Shield & Brand Icon -->
+  <!-- Left Column: Editorial Brand & Storytelling -->
+  <g transform="translate(70, 56)">
+    <!-- Brand Shield & Pill -->
     <g transform="translate(0, 0)">
-      <rect width="44" height="44" rx="10" fill="#065F46" stroke="#10B981" stroke-width="1.5" />
-      <!-- Shield Path -->
-      <path d="M 22 10 L 33 14 V 22 C 33 28 28 33 22 35 C 16 33 11 28 11 22 V 14 Z" fill="none" stroke="#34D399" stroke-width="2" stroke-linejoin="round" />
-      <!-- Pulse / Bolt inside shield -->
-      <path d="M 23 15 L 18 23 H 23 L 21 30 L 27 21 H 22 Z" fill="#FBBF24" />
+      <rect width="168" height="34" rx="17" fill="#FFFFFF" stroke="#E2E0D4" stroke-width="1" filter="url(#badgeShadow)" />
+      <!-- Lime Icon Orb -->
+      <circle cx="17" cy="17" r="10" fill="url(#limeGrad)" />
+      <!-- Power Pulse Icon -->
+      <path d="M 17 11 L 13 17 H 17 L 16 23 L 21 16 H 17 Z" fill="#171A17" />
+      <text x="36" y="22" font-size="12" font-weight="700" fill="#171A17" letter-spacing="0.5">BILLGUARD</text>
+      <circle cx="120" cy="17" r="3" fill="#10B981" />
+      <text x="128" y="21" font-size="10" font-weight="600" fill="#62685F">APERC</text>
     </g>
 
-    <text x="56" y="28" font-size="20" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">BillGuard</text>
-    <text x="160" y="28" font-size="11" font-weight="700" fill="#34D399" letter-spacing="1.5">TRUST IN EVERY UNIT</text>
-
-    <!-- Main Headline -->
-    <text x="0" y="95" font-size="42" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">
-      Every Unit Accounted For.
+    <!-- Bold Main Headline -->
+    <text x="0" y="96" font-size="46" font-weight="800" fill="#171A17" letter-spacing="-1.2">
+      Know what your electricity
+    </text>
+    <text x="0" y="148" font-size="46" font-weight="800" fill="#171A17" letter-spacing="-1.2">
+      bill should be.
     </text>
 
-    <!-- Subtitle -->
-    <text x="0" y="132" font-size="18" font-weight="500" fill="#A7F3D0">
-      AI-Powered Electricity Bill Auditing &amp; Tariff Verification
+    <!-- Subheadline Description -->
+    <text x="0" y="196" font-size="16" font-weight="400" fill="#62685F" line-height="24">
+      AI-assisted electricity bill auditing that helps consumers in Andhra Pradesh
+    </text>
+    <text x="0" y="222" font-size="16" font-weight="400" fill="#62685F">
+      compare billed charges against tariff calculations and understand potential discrepancies.
     </text>
 
-    <!-- Description -->
-    <text x="0" y="165" font-size="13" font-weight="400" fill="#D1FAE5" opacity="0.85">
-      Reconciles electricity statements against official APERC retail tariff schedules.
-    </text>
-    <text x="0" y="186" font-size="13" font-weight="400" fill="#D1FAE5" opacity="0.85">
-      Detects hidden discrepancies, calculates true costs, and automates grievance letters.
-    </text>
+    <!-- Trust Badges Row -->
+    <g transform="translate(0, 260)">
+      <!-- Badge 1: 100% Deterministic -->
+      <rect width="186" height="36" rx="8" fill="#FFFFFF" stroke="#E2E0D4" stroke-width="1" filter="url(#badgeShadow)" />
+      <circle cx="18" cy="18" r="5" fill="url(#limeGrad)" stroke="#171A17" stroke-width="1.5" />
+      <text x="32" y="22" font-size="12" font-weight="600" fill="#171A17">100% Deterministic Math</text>
 
-    <!-- Pills / Badges -->
-    <g transform="translate(0, 222)">
-      <!-- Badge 1: APERC Regulated -->
-      <rect x="0" y="0" width="168" height="28" rx="6" fill="#065F46" stroke="#10B981" stroke-opacity="0.4" />
-      <circle cx="14" cy="14" r="4" fill="#34D399" />
-      <text x="26" y="18" font-size="11" font-weight="600" fill="#ECFDF5">APERC FY 2026-27 Slabs</text>
+      <!-- Badge 2: Gazetted APERC Rules -->
+      <g transform="translate(202, 0)">
+        <rect width="186" height="36" rx="8" fill="#FFFFFF" stroke="#E2E0D4" stroke-width="1" filter="url(#badgeShadow)" />
+        <circle cx="18" cy="18" r="5" fill="url(#mintGrad)" stroke="#171A17" stroke-width="1.5" />
+        <text x="32" y="22" font-size="12" font-weight="600" fill="#171A17">Gazetted Tariff Orders</text>
+      </g>
 
-      <!-- Badge 2: Deterministic -->
-      <rect x="180" y="0" width="162" height="28" rx="6" fill="#065F46" stroke="#10B981" stroke-opacity="0.4" />
-      <path d="M 194 14 L 197 17 L 202 11" fill="none" stroke="#34D399" stroke-width="2" stroke-linecap="round" />
-      <text x="210" y="18" font-size="11" font-weight="600" fill="#ECFDF5">Deterministic Engine</text>
-
-      <!-- Badge 3: AWS Single Table -->
-      <rect x="354" y="0" width="144" height="28" rx="6" fill="#065F46" stroke="#10B981" stroke-opacity="0.4" />
-      <text x="368" y="18" font-size="11" font-weight="600" fill="#ECFDF5">AWS S3 + DynamoDB</text>
+      <!-- Badge 3: Trilingual (EN/TE/HI) -->
+      <g transform="translate(404, 0)">
+        <rect width="140" height="36" rx="8" fill="#FFFFFF" stroke="#E2E0D4" stroke-width="1" filter="url(#badgeShadow)" />
+        <text x="16" y="22" font-size="12" font-weight="600" fill="#171A17">English • తెలుగు • हिंदी</text>
+      </g>
     </g>
   </g>
 
-  <!-- Right Column: Interactive Diagram Card -->
-  <g transform="translate(680, 42)" filter="url(#shadow)">
-    <!-- Outer Card Frame -->
-    <rect width="456" height="296" rx="14" fill="url(#cardGrad)" stroke="#10B981" stroke-opacity="0.3" stroke-width="1.5" />
+  <!-- Right Column: Dimensional 3D-Inspired Visual Composition -->
+  <g transform="translate(730, 42)">
+    <!-- Energy Flow Accent Ribbon -->
+    <path d="M -20 180 C 60 140, 180 260, 320 180" fill="none" stroke="url(#limeGrad)" stroke-width="6" stroke-linecap="round" opacity="0.75" />
+    <path d="M 10 210 C 90 170, 210 290, 340 210" fill="none" stroke="url(#mintGrad)" stroke-width="3" stroke-linecap="round" opacity="0.6" />
 
-    <!-- Card Top Header -->
-    <rect width="456" height="42" rx="14" fill="#062A20" />
-    <circle cx="24" cy="21" r="5" fill="#EF4444" />
-    <circle cx="40" cy="21" r="5" fill="#F59E0B" />
-    <circle cx="56" cy="21" r="5" fill="#10B981" />
-    <text x="80" y="25" font-size="11" font-weight="600" fill="#6EE7B7" letter-spacing="0.5">AUDIT_CERTIFICATE // VERIFIED_STATEMENT</text>
-    <rect x="340" y="11" width="96" height="20" rx="4" fill="#065F46" />
-    <text x="348" y="24" font-size="10" font-weight="700" fill="#A7F3D0">APSPDCL LT-I</text>
-
-    <!-- Consumer Meta Row -->
-    <g transform="translate(24, 60)">
-      <text x="0" y="12" font-size="11" font-weight="500" fill="#9CA3AF">Consumer Authority</text>
-      <text x="0" y="28" font-size="13" font-weight="700" fill="#FFFFFF">APSPDCL (Tirupati/Nellore)</text>
-
-      <text x="230" y="12" font-size="11" font-weight="500" fill="#9CA3AF">Tariff Schedule</text>
-      <text x="230" y="28" font-size="13" font-weight="700" fill="#FCD34D">APERC-TO-2026-27</text>
-    </g>
-
-    <line x1="24" y1="104" x2="432" y2="104" stroke="#065F46" stroke-width="1" />
-
-    <!-- Comparison Metric Grid -->
-    <g transform="translate(24, 120)">
-      <!-- Expected Box -->
-      <rect x="0" y="0" width="128" height="68" rx="8" fill="#022C22" stroke="#10B981" stroke-opacity="0.2" />
-      <text x="12" y="18" font-size="10" font-weight="600" fill="#94A3B8">APERC EXPECTED</text>
-      <text x="12" y="44" font-size="20" font-weight="800" fill="#FFFFFF">₹2,000<tspan font-size="13" font-weight="500" fill="#94A3B8">.45</tspan></text>
-      <text x="12" y="60" font-size="9" font-weight="500" fill="#34D399">Telescopic 6 Slabs</text>
-
-      <!-- Actual Billed Box -->
-      <rect x="140" y="0" width="128" height="68" rx="8" fill="#022C22" stroke="#10B981" stroke-opacity="0.2" />
-      <text x="152" y="18" font-size="10" font-weight="600" fill="#94A3B8">STATEMENT BILLED</text>
-      <text x="152" y="44" font-size="20" font-weight="800" fill="#FFFFFF">₹2,850<tspan font-size="13" font-weight="500" fill="#94A3B8">.00</tspan></text>
-      <text x="152" y="60" font-size="9" font-weight="500" fill="#94A3B8">320 Units Billed</text>
-
-      <!-- Variance Box -->
-      <rect x="280" y="0" width="128" height="68" rx="8" fill="#450A0A" stroke="#EF4444" stroke-opacity="0.4" />
-      <text x="292" y="18" font-size="10" font-weight="700" fill="#FCA5A5">VARIANCE (EXCESS)</text>
-      <text x="292" y="44" font-size="20" font-weight="800" fill="#F87171">+₹849<tspan font-size="13" font-weight="500" fill="#FCA5A5">.55</tspan></text>
-      <text x="292" y="60" font-size="9" font-weight="700" fill="#F87171">Above Statutory Tier</text>
-    </g>
-
-    <!-- Bottom Status Strip -->
-    <g transform="translate(24, 206)">
-      <rect x="0" y="0" width="408" height="66" rx="8" fill="#042F24" stroke="#10B981" stroke-opacity="0.25" />
+    <!-- BASE CARD: Floating Digital Statement (Slight Isometric Tilt) -->
+    <g transform="translate(30, 15)" filter="url(#floatShadow)">
+      <rect width="360" height="310" rx="14" fill="url(#cardGrad)" stroke="#E5E3D8" stroke-width="1.5" />
       
-      <!-- Status Badge -->
-      <rect x="12" y="12" width="140" height="22" rx="4" fill="#991B1B" />
-      <circle cx="22" cy="23" r="3.5" fill="#F87171" />
-      <text x="32" y="27" font-size="10" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">POTENTIAL OVERCHARGE</text>
+      <!-- Statement Header Bar -->
+      <rect x="0" y="0" width="360" height="48" rx="14" fill="#FFFFFF" />
+      <rect x="0" y="44" width="360" height="4" fill="url(#limeGrad)" />
+      
+      <!-- Utility Name & Meta -->
+      <circle cx="28" cy="24" r="8" fill="#F0EFEA" />
+      <path d="M 28 19 L 25 24 H 28 L 27 29 L 31 23 H 28 Z" fill="#171A17" />
+      <text x="44" y="28" font-size="13" font-weight="700" fill="#171A17">APSPDCL Consumer Bill</text>
+      <text x="260" y="28" font-size="11" font-weight="600" fill="#62685F">FY 2026-27</text>
 
-      <text x="160" y="27" font-size="11" font-weight="500" fill="#D1FAE5">Variance exceeds statutory ₹25 threshold</text>
+      <!-- Statement Body Line Items -->
+      <g transform="translate(24, 68)">
+        <text x="0" y="14" font-size="11" font-weight="500" fill="#8A9086">CONSUMER SERVICE NO.</text>
+        <text x="0" y="32" font-size="14" font-weight="700" fill="#171A17">1122334455 / TIRUPATI</text>
 
-      <!-- Action Footer -->
-      <text x="12" y="52" font-size="10" font-weight="600" fill="#6EE7B7">RECOMMENDED ACTION:</text>
-      <text x="144" y="52" font-size="10" font-weight="400" fill="#ECFDF5">Automate CGRF Dispute Draft · Export Audit PDF</text>
+        <text x="180" y="14" font-size="11" font-weight="500" fill="#8A9086">CATEGORY</text>
+        <text x="180" y="32" font-size="13" font-weight="600" fill="#171A17">LT-I Domestic</text>
+
+        <line x1="0" y1="46" x2="312" y2="46" stroke="#EDEBE3" stroke-width="1" />
+
+        <!-- Slab Breakdown Mini-Visualizer -->
+        <text x="0" y="66" font-size="11" font-weight="600" fill="#62685F">TELESCOPIC SLAB BREAKDOWN</text>
+        
+        <!-- Slab bars -->
+        <rect x="0" y="78" width="58" height="6" rx="3" fill="url(#limeGrad)" />
+        <rect x="62" y="78" width="68" height="6" rx="3" fill="url(#limeGrad)" />
+        <rect x="134" y="78" width="68" height="6" rx="3" fill="url(#limeGrad)" />
+        <rect x="206" y="78" width="58" height="6" rx="3" fill="url(#mintGrad)" />
+        <rect x="268" y="78" width="44" height="6" rx="3" fill="#E2E0D4" />
+
+        <text x="0" y="104" font-size="12" fill="#62685F">Units Consumed:</text>
+        <text x="100" y="104" font-size="12" font-weight="700" fill="#171A17">240 kWh</text>
+
+        <text x="180" y="104" font-size="12" fill="#62685F">Billed Total:</text>
+        <text x="250" y="104" font-size="12" font-weight="700" fill="#171A17">₹1,420.00</text>
+
+        <line x1="0" y1="120" x2="312" y2="120" stroke="#EDEBE3" stroke-width="1" />
+
+        <!-- Expected vs Billed Callout inside Bill -->
+        <rect x="0" y="132" width="312" height="54" rx="8" fill="#F8F7F2" stroke="#E5E3D8" stroke-width="1" />
+        <text x="14" y="152" font-size="11" fill="#62685F">APERC Calculated Total</text>
+        <text x="14" y="174" font-size="17" font-weight="800" fill="#10B981">₹1,284.00</text>
+        
+        <text x="176" y="152" font-size="11" fill="#62685F">Detected Variance</text>
+        <text x="176" y="174" font-size="17" font-weight="800" fill="#DC2626">+₹136.00</text>
+      </g>
+    </g>
+
+    <!-- FLOATING 3D-INSPIRED METER DIAL (Overlapping Top-Right) -->
+    <g transform="translate(240, -10)" filter="url(#softShadow)">
+      <!-- Meter Circular Frame -->
+      <circle cx="56" cy="56" r="48" fill="#FFFFFF" stroke="#E2E0D4" stroke-width="2" />
+      <circle cx="56" cy="56" r="40" fill="#FBFBFA" stroke="url(#limeGrad)" stroke-width="3" />
+      
+      <!-- Dial tick marks -->
+      <line x1="56" y1="20" x2="56" y2="26" stroke="#171A17" stroke-width="2" />
+      <line x1="30" y1="36" x2="35" y2="39" stroke="#8A9086" stroke-width="1.5" />
+      <line x1="82" y1="36" x2="77" y2="39" stroke="#8A9086" stroke-width="1.5" />
+      <line x1="22" y1="56" x2="28" y2="56" stroke="#8A9086" stroke-width="1.5" />
+      <line x1="90" y1="56" x2="84" y2="56" stroke="#8A9086" stroke-width="1.5" />
+      
+      <!-- Needle Pointing to Active Tier -->
+      <polygon points="54,56 58,56 66,32 56,30" fill="#171A17" />
+      <circle cx="56" cy="56" r="4" fill="url(#limeGrad)" stroke="#171A17" stroke-width="1" />
+
+      <!-- Digital readout badge below meter -->
+      <rect x="24" y="74" width="64" height="18" rx="4" fill="#171A17" />
+      <text x="56" y="87" font-size="10" font-weight="700" fill="url(#limeGrad)" text-anchor="middle" letter-spacing="1">240 kWh</text>
+    </g>
+
+    <!-- FLOATING VERIFICATION BADGE (Overlapping Bottom-Left) -->
+    <g transform="translate(-15, 230)" filter="url(#softShadow)">
+      <rect width="180" height="64" rx="12" fill="#FFFFFF" stroke="#E2E0D4" stroke-width="1" />
+      <circle cx="28" cy="32" r="16" fill="url(#limeGrad)" />
+      <!-- Checkmark -->
+      <path d="M 22 32 L 26 36 L 34 27" fill="none" stroke="#171A17" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="52" y="28" font-size="12" font-weight="700" fill="#171A17">Audit Verified</text>
+      <text x="52" y="46" font-size="10" font-weight="600" fill="#10B981">CGRF Draft Ready</text>
     </g>
   </g>
 </svg>
