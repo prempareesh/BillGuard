@@ -300,9 +300,14 @@ test("Workflow, Field Correction, and Persistence Invariant Tests", async (t) =>
       assert.strictEqual(mockLocalStorage.getItem("billguard_audit_history"), "[]");
 
       // 5. Verify Dashboard empty state evaluation
+      const evaluateDashboardUnits = (
+        audit: { unitsConsumed?: number } | null,
+        history: { unitsConsumed?: number } | null
+      ) => Number(audit ? audit.unitsConsumed : history ? history.unitsConsumed : 0);
+
       const latestAudit: { unitsConsumed?: number } | null = null;
-      const latestHistory = fetched.length > 0 ? fetched[0] : null;
-      const unitsConsumed = Number(latestAudit ? latestAudit.unitsConsumed : latestHistory ? latestHistory.unitsConsumed : 0);
+      const latestHistory: { unitsConsumed?: number } | null = fetched.length > 0 ? fetched[0] : null;
+      const unitsConsumed = evaluateDashboardUnits(latestAudit, latestHistory);
       const hasAuditedBill = (latestAudit !== null || latestHistory !== null || fetched.length > 0) && unitsConsumed > 0;
 
       assert.strictEqual(hasAuditedBill, false, "Dashboard must evaluate hasAuditedBill as false when all records are deleted");
